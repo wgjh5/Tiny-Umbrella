@@ -1,0 +1,107 @@
+body {
+    padding-bottom: 5rem
+}
+
+.public_tab {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    max-width: 750px;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    z-index: 1000;
+    display: none;
+}
+
+.public_tab_box {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    height: 5rem;
+    background-color: #fff;
+    max-width: 750px;
+    margin: 0 auto;
+    background-image: -webkit-linear-gradient(bottom, transparent, transparent, #d0d0d0, #d0d0d0);
+    background-image: linear-gradient(0deg, transparent, transparent, #d0d0d0, #d0d0d0);
+    background-position: left top;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+}
+
+.public_tab_item {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-flex-pack: center;
+    flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: hidden;
+    height: 100%;
+    color: inherit;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 400;
+    font-size: 1rem;
+    font-family: "Microsoft Yahei";
+    color: #3c3c3c;
+}
+
+.public_tab_item.active {
+    color: #8c7fee;
+}
+
+.public_tab_icon {
+    width: 2.6rem;
+    height: 2.6rem;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.public_icon_sy {
+    background-image: url(https://sslstatic.xiaoyusan.com/appbase/img/common/tab1.png)
+}
+
+.public_icon_fx {
+    background-image: url(https://sslstatic.xiaoyusan.com/appbase/img/common/tab3.png)
+}
+
+.public_icon_gr {
+    background-image: url(https://sslstatic.xiaoyusan.com/appbase/img/common/tab5.png)
+}
+
+.public_tab_item.active .public_icon_sy {
+    background-image: url(https://sslstatic.xiaoyusan.com/appbase/img/common/tab2.png)
+}
+
+.public_tab_item.active .public_icon_fx {
+    background-image: url(https://sslstatic.xiaoyusan.com/appbase/img/common/tab4.png)
+}
+
+.public_tab_item.active .public_icon_gr {
+    background-image: url(https://sslstatic.xiaoyusan.com/appbase/img/common/tab6.png)
+}
+
+.public_icon_yx {
+    background-image: url(https://sslstatic.xiaoyusan.com/appbase/img/common/tab_yx.png)
+}
+
+.public_tab_item.active .public_icon_yx {
+    background-image: url(https://sslstatic.xiaoyusan.com/appbase/img/common/tab_yx_active.png)
+}
+
+/* } */
