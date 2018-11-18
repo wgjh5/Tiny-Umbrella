@@ -15,7 +15,7 @@ class searchChoice extends Component {
   render () {
     return (
       <div>
-        
+        严选页面
       <Xfooter />
       </div>
     )

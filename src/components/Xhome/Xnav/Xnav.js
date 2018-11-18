@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './Xnav.css'
 
 import { connect } from 'react-redux';
-import Item from '../../../../node_modules/antd/lib/list/Item';
+import { Link } from 'react-router-dom'
 
 
 class Xnav extends Component {
@@ -15,6 +15,7 @@ class Xnav extends Component {
        
     }
   }
+
   render () {
     return (
 
@@ -23,11 +24,13 @@ class Xnav extends Component {
             <div className="nav grid middle">
                 <div className="swiper-container col-1 swiper-container-horizontal swiper-container-free-mode" id="nav" style={{paddingBottom:"0"}}>
                     <div className="swiper-wrapper" style={{transform: "[translate3d(0px, 0px, 0px)]"}}>
-                    {/* {(()=>{
+                    {(()=>{
                         return this.props.navs.map((item,index) => {
-                            return ( <a href="javascript:;" className="swiper-slide active swiper-slide-active" >{item.title}</a>)
+                            return ( <Link to={{pathname:`/home/homeIndex/${item.href}`}} replace onClick={this.props.isActive.bind(this,index)}  key={index} className={
+                                this.state.isActive===index? "swiper-slide active swiper-slide-active" : "swiper-slide"
+                            } >{item.title}</Link>)
                         })
-                    })()} */}
+                    })()}
                         
                         {/* <a href="javascript:;" className="swiper-slide swiper-slide-next" >少儿</a>
                         <a href="javascript:;" className="swiper-slide" >成人</a>
@@ -47,5 +50,18 @@ class Xnav extends Component {
 export default connect((state)=>{
     return state    
 } , (dispatch) => {
-    return {}
+    return {
+        isActive(index){
+            console.log(index)
+            this.setState({
+                isActive:index
+            })
+            dispatch({
+                type:"isActive",
+                index: index,
+                isShow:true
+              })
+        }
+    }
 })(Xnav);
+

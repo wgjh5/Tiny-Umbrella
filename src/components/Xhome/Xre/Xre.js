@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import './Mine.css'
+
+
 // 引入组件
 
-import Xfooter from '../../components/Xfooter/Xfooter'
-
 // import { Route } from 'react-router-dom'
-class mine extends Component {
+import Xrecommend from '../XlistSection/Xrecommend/Xrecommend';
+class Xre extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -15,11 +15,10 @@ class mine extends Component {
   render () {
     return (
       <div>
-        我的页面
-      <Xfooter />
+       <Xrecommend />
       </div>
     )
   }
 }
 
-export default mine
+export default Xre
