@@ -6357,6 +6357,7 @@ span.ant-radio + * {
   display: block;
   margin: 0;
   padding: 0;
+  
 }
 .ant-carousel .slick-list:focus {
   outline: none;
@@ -6374,6 +6375,7 @@ span.ant-radio + * {
   left: 0;
   top: 0;
   display: block;
+  width:228px;
 }
 .ant-carousel .slick-track:before,
 .ant-carousel .slick-track:after {
@@ -6413,7 +6415,7 @@ span.ant-radio + * {
 .ant-carousel .slick-vertical .slick-slide {
   display: block;
   height: auto;
-  border: 1px solid transparent;
+  /* border: 1px solid transparent; */
 }
 .ant-carousel .slick-arrow.slick-hidden {
   display: none;

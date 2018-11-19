@@ -8,10 +8,10 @@ class Xfooter extends Component {
   constructor (props) {
     super(props)
     this.state = {
-        tab:0,
+        tab:props.tab,
         tabs:[{
             title:"首页",
-            href:"homeIndex",
+            href:"home/Xrecommend",
             isActive:false,
             dataId:"tab_home",
             dataClass:"public_icon_sy"
@@ -35,6 +35,22 @@ class Xfooter extends Component {
             dataClass:"public_icon_gr"
         }]
     }
+    switch (window.location.hash.slice(2)) {
+        case "/home/Xrecommend":
+          this.state.tab=0
+          break;
+          case "bestchoice":
+          this.state.tab=1
+          break;
+          case "search":
+          this.state.tab=2
+          break;
+          case "mine":
+          this.state.tab=3
+          break;
+        default: this.state.tab=0
+          break;
+      }
   }
   toggleClass(index){
       this.setState({
@@ -48,7 +64,7 @@ class Xfooter extends Component {
             {(()=>{
                   return this.state.tabs.map((item,index)=>{
                         return (
-                            <Link to={ {pathname:`/home/${item.href}` }}  replace key={index} onClick={this.toggleClass.bind(this,index)}  className={this.state.tab===index? "public_tab_item active" : "public_tab_item"} id={item.dataId}>
+                            <Link to={ {pathname:`/${item.href}` }}  replace key={index} onClick={this.toggleClass.bind(this,index)}  className={this.state.tab===index? "public_tab_item active" : "public_tab_item"} id={item.dataId}>
                                 <div className="public_tab_info">
                                     <p className={`public_tab_icon ${item.dataClass}`}></p>
                                     <p>{item.title}</p>

@@ -2,21 +2,25 @@ import React, { Component } from 'react'
 import './BestChoice.css'
 // 引入组件
 
-import Xfooter from '../../components/Xfooter/Xfooter'
+
 
 import { Route } from 'react-router-dom'
+import XheaderBar from '../../components/Xhome/XheaderBar/XheaderBar';
+import Xnav from '../../components/Xhome/Xnav/Xnav';
+import Xcontent from '../../components/Xbestchoice/Xcontent/Xcontent';
 class searchChoice extends Component {
   constructor (props) {
     super(props)
     this.state = {
-
+      status:"bestchoice"
     }
   }
   render () {
     return (
-      <div>
-        严选页面
-      <Xfooter />
+      <div className="container iphonex_padding">
+        <XheaderBar status={this.state.status}/>
+        <Xnav status={this.state.status}/>
+        <Xcontent />
       </div>
     )
   }

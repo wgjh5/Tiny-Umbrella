@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Search.css'
 // 引入组件
-import Xfooter from '../../components/Xfooter/Xfooter'
+
 
 import { Route } from 'react-router-dom'
 class search extends Component {
@@ -15,7 +15,7 @@ class search extends Component {
     return (
       <div>
         发现页
-      <Xfooter />
+
       </div>
     )
   }

@@ -11,37 +11,61 @@ class Xnav extends Component {
     this.props = props;
     console.log(this.props)
     this.state = {
-        isActive:0
+        isActive:this.props.tab,
+        n:0,
+        nav:[{
+            title:"成人",
+            isNav:true
+        },{
+            title:"少儿",
+            isNav:false
+        },{
+            title:"父母",
+            isNav:false
+        }]
        
     }
   }
-
+ 
   render () {
     return (
-
-   <div id="sticky" className="sticky_box">
-        <div className="fiexdhead">
-            <div className="nav grid middle">
-                <div className="swiper-container col-1 swiper-container-horizontal swiper-container-free-mode" id="nav" style={{paddingBottom:"0"}}>
-                    <div className="swiper-wrapper" style={{transform: "[translate3d(0px, 0px, 0px)]"}}>
-                    {(()=>{
-                        return this.props.navs.map((item,index) => {
-                            return ( <Link to={{pathname:`/home/homeIndex/${item.href}`}} replace onClick={this.props.isActive.bind(this,index)}  key={index} className={
-                                this.state.isActive===index? "swiper-slide active swiper-slide-active" : "swiper-slide"
-                            } >{item.title}</Link>)
-                        })
-                    })()}
-                        
-                        {/* <a href="javascript:;" className="swiper-slide swiper-slide-next" >少儿</a>
-                        <a href="javascript:;" className="swiper-slide" >成人</a>
-                        <a href="javascript:;" className="swiper-slide" >父母</a>
-                        <a href="javascript:;" className="swiper-slide" >家庭</a>
-                        <a href="javascript:;" className="swiper-slide" >旅行</a> */}
+        <div>
+        {(()=>{
+            if (this.props.tab>=0){
+                return (
+                    <div id="sticky" className="sticky_box">
+                    <div className="fiexdhead">
+                        <div className="nav grid middle">
+                            <div className="swiper-container col-1 swiper-container-horizontal swiper-container-free-mode" id="nav" style={{paddingBottom:"0"}}>
+                                <div className="swiper-wrapper" style={{transform: "[translate3d(0px, 0px, 0px)]"}}>
+                                {(()=>{
+                                    return this.props.navs.map((item,index) => {
+                                        return ( <Link to={{pathname:`${item.href}`}} replace onClick={this.props.isActive.bind(this,index)}  key={index} className={
+                                            this.state.isActive===index? "swiper-slide active swiper-slide-active" : "swiper-slide"
+                                        } >{item.title}</Link>)
+                                    })
+                                })()}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+                )
+            }else if(this.props.status=="bestchoice"){
+                return (
+                     <nav className="listnav row" style={{marginTop:"0"}}>
+                        {(()=>{
+                    return this.state.nav.map((item,index)=>{
+                             return ( <div href="javascript:;" onClick={this.props.toggleNav.bind(this,index)} key={index} className={
+                                 this.state.n==index?"navitem col active" : "navitem col"}>{item.title}</div>
+                                 )
+                            })
+                        })()}
+                    </nav>
+                )
+            }
+        })()}
+   </div>
 
     )
   }
@@ -52,7 +76,7 @@ export default connect((state)=>{
 } , (dispatch) => {
     return {
         isActive(index){
-            console.log(index)
+            console.log(this.props)
             this.setState({
                 isActive:index
             })
@@ -60,6 +84,16 @@ export default connect((state)=>{
                 type:"isActive",
                 index: index,
                 isShow:true
+              })
+        },
+        toggleNav(index){
+            this.setState({
+                n:index
+            })
+            dispatch({
+                type:"toggleNav",
+                idx: index,
+                isContent:true
               })
         }
     }

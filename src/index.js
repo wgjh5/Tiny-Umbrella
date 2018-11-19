@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
+// import './index.css'
 import './assets/base.css'
 import './assets/body.css'
 // 路由引入
@@ -18,77 +18,115 @@ import { createStore } from 'redux'
 
 // 父组件
 import Home from './pages/Home/Home'
+import Xfooter from './components/Xfooter/Xfooter';
 
+import Search from './pages/Search/Search'
+import BestChoice from './pages/BestChoice/BestChoice'
+import Mine from './pages/Mine/Mine'
 
 // 创建仓库
 const store = createStore(function (state = {
   // isShow:false,
     navs: [{
       title: '推荐',
-      href: 'recommend',
+      href: '/home/Xrecommend',
       // isIndex:0,
       isShow:true,
       recommend: []
     }, {
       title: '少儿',
-      href: 'children',
+      href: '/home/Xchildren',
       isShow:false,
       children: []
     }, {
       title: '成人',
-      href: 'adult',
+      href: '/home/Xadult',
       isShow:false,
       adult: []
     }, {
       title: '父母',
-      href: 'parents ',
+      href: '/home/Xparents',
       isShow:false,
       parents: []
     }, {
       title: '家庭',
-      href: 'family',
+      href: '/home/Xfamily',
       isShow:false,
       family: []
     }, {
       title: '旅行',
-      href: 'travel',
+      href: '/home/Xtravel',
       isShow:false,
       travel: []
+    }],
+    content:[{
+      idx:0,
+      isContent:true
+    },{
+      idx:1,
+      isContent:false
+    },{
+      idx:2,
+      isContent:false
     }]
   } ,action) {
   switch (action.type) {
       case 'isActive':
+      // 把仓库赋值给navs
+      var  {navs}  = state
+      // 遍历navs仓库，找到你要的东西
+      for(var i=0;i<navs.length;i++){
+        navs[i].isShow=false
+        navs[action.index].isShow =action.isShow
+      }
         return {
             ...state,
-           isShow:action.isShow
+            navs
         }
-        // const reducers = (state, action) => {
-        //   case 'CHANGE_SHOW_STATE': {
-        //     const { lists } = state
-        //     const updatedItem = xxx
-        //     const updatedLists = [
-        //        ...lists.slice(0, 1),
-        //        updatedItem,
-        //        ...lists.slice(2),
-        //     ]
-        //     return {
-        //        ...state,
-        //        lists: updatedLists,
-        //     }
-        //   }
-        // }
+        break;
+        case 'toggleNav':
+        // 把仓库赋值给navs
+        var  {content}  = state
+        console.log(content)
+        // 遍历navs仓库，找到你要的东西
+        for(var i=0;i<content.length;i++){
+          content[i].isContent=false
+          content[action.idx].isContent =action.isContent
+        }
+          return {
+              ...state,
+              content
+          }
+          break;
     default:
       return state
   }
 })
+class HelloMessage extends React.Component {
+constructor (props) {
+  console.log(props)
+  super(props)
+}
+}
+
+
+// import { createStore } from 'redux';
+// const store = createStore(reducer);
+
+// store.subscribe(listener);
 ReactDOM.render(
   <Provider store={store}>
     <Router>
       <div className='container iphonex_padding'>
         <Switch>
+        {/* console.log(this.props) */}
           <Route path='/home/' component={Home} />
-          <Redirect from='/' exact to='/home/HomeIndex' />
+          <Route path="/BestChoice/"  component={BestChoice} />
+          <Route path="/Search/" component={Search} />
+          <Route path="/Mine/" component={Mine} />
+          <Redirect from='/' exact to='/home/Xrecommend' />
         </Switch>
+        <Xfooter />
       </div>
     </Router>
   </Provider>, document.getElementById('root'))

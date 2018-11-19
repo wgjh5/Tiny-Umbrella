@@ -14,6 +14,9 @@ import Xparents from '../../components/Xhome/XlistSection/Xparents/Xparents'
 import Xfamily from '../../components/Xhome/XlistSection/Xfamily/Xfamily'
 import Xtravel from '../../components/Xhome/XlistSection/Xtravel/Xtravel'
 import Xfooter from '../../components/Xfooter/Xfooter'
+import XbackTop from '../../components/Xhome/XbackTop/XbackTop';
+import Xpbft from '../../components/Xhome/Xpbft/Xpbft';
+import Xhonor from '../../components/Xhome/Xhonor/Xhonor';
 // import Xrecommend from '../../components/Xhome/XlistSection/Xrecommend/Xrecommend';
 // import Xrecommend from '../../components/Xhome/XlistSection/Xrecommend/Xrecommend';
 
@@ -41,13 +44,9 @@ class HomeIndex extends Component {
           <Xparents />
           <Xfamily />
           <Xtravel />
-          {/* <Route path='/home/homeIndex/Xrecommend' component={Xrecommend} />
-          <Route path='/home/homeIndex/Xchildren' component={Xchildren} />
-          <Route path='/home/homeIndex/Xadult' component={Xadult} />
-          <Route path='/home/homeIndex/Xparents' component={Xparents} />
-          <Route path='/home/homeIndex/Xfamily ' component={Xfamily} />
-          <Route path='/home/homeIndex/Xtravel  ' component={Xtravel} /> */}
-        {/* </Router> */}
+          <XbackTop />
+          <Xpbft />
+          <Xhonor />
         </div>
         <Xfooter />
       </div>
