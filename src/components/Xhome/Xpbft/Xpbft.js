@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Xpbft.css'
+import './Xpbft.scss'
 
 
 
@@ -13,8 +13,8 @@ class Xpbft extends Component {
   }
   render () {
     return (
-    //   <div>
-        <div className="pbft">
+      <div className="pb">
+        <div className="pbft ">
     <div className="pbft_hd">
         <hr/>合作保险公司</div>
     <div className="pbft_bd" style={{paddingBottom:"1rem",borderBottom:"1px solid #f0f0f0"}}>
@@ -60,7 +60,7 @@ class Xpbft extends Component {
         </div>
     </div>
 </div>
-
+</div>
     )
   }
 }

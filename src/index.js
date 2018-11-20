@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 // import './index.css'
-import './assets/base.css'
+import './assets/base.scss'
 import './assets/body.css'
 // 路由引入
 import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
@@ -87,12 +87,13 @@ const store = createStore(function (state = {
         case 'toggleNav':
         // 把仓库赋值给navs
         var  {content}  = state
-        console.log(content)
+        
         // 遍历navs仓库，找到你要的东西
         for(var i=0;i<content.length;i++){
           content[i].isContent=false
           content[action.idx].isContent =action.isContent
         }
+        console.log(content)
           return {
               ...state,
               content
@@ -102,12 +103,12 @@ const store = createStore(function (state = {
       return state
   }
 })
-class HelloMessage extends React.Component {
-constructor (props) {
-  console.log(props)
-  super(props)
-}
-}
+// class HelloMessage extends React.Component {
+// constructor (props) {
+//   console.log(props)
+//   super(props)
+// }
+// }
 
 
 // import { createStore } from 'redux';
@@ -126,7 +127,7 @@ ReactDOM.render(
           <Route path="/Mine/" component={Mine} />
           <Redirect from='/' exact to='/home/Xrecommend' />
         </Switch>
-        <Xfooter />
+        
       </div>
     </Router>
   </Provider>, document.getElementById('root'))

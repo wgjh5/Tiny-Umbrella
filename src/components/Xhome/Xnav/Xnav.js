@@ -3,7 +3,8 @@ import './Xnav.css'
 
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
-
+// 引入store
+import store from "../../../libs/store.js";
 
 class Xnav extends Component {
   constructor (props) {
@@ -26,7 +27,14 @@ class Xnav extends Component {
        
     }
   }
- 
+//   sendShow(e){
+//     // 发送数据
+//     store.emit("show",e.target.value);
+//     //console.log(e.target.value);
+//     this.setState({
+//         searchValue:e.target.value
+//     })
+// }
   render () {
     return (
         <div>
@@ -86,7 +94,7 @@ export default connect((state)=>{
                 isShow:true
               })
         },
-        toggleNav(index){
+        toggleNav(index,e){
             this.setState({
                 n:index
             })
@@ -95,6 +103,9 @@ export default connect((state)=>{
                 idx: index,
                 isContent:true
               })
+              // 发送数据
+            //   console.log(e)
+            store.emit("show",index);
         }
     }
 })(Xnav);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Xhonor.css'
+import './Xhonor.scss'
 import { Carousel } from 'antd'
 
 // import { Route } from 'react-router-dom'
@@ -12,6 +12,7 @@ class Xhonor extends Component {
   }
   render () {
     return (
+      <div className="honor">
       <div className='pbft grid'>
         <div className='pbft_hd col-0'>
           <hr style={{
@@ -43,6 +44,7 @@ class Xhonor extends Component {
           </div>
         </div>
       </div>
+      </div> 
       //     <div classNameName="pbft grid">
       //     <div classNameName="pbft_hd col-0">
       //         <hr style={{marginTop: "-0.6rem"}}/>公司荣誉</div>
@@ -126,7 +128,7 @@ class Xhonor extends Component {
       //         </div>
       //     </div>
       // </div>
-
+      
     )
   }
 }

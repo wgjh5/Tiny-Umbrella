@@ -38,6 +38,35 @@ class XheaderBar extends Component {
             <img src="https://sslstatic.xiaoyusan.com/h5/img/yanxuan/banner3.jpg" alt="" />
         </div>
            )
+          }else if(this.props.status == "mine"){
+            return (
+              <div>
+              <div className="head grid middle">
+            <div className="head_img">
+                <a href="https://www.xiaoyusan.com/UserProfile/index/home/main">
+                    <img src="//sslstatic.xiaoyusan.com/h5/img/my/top_logo.jpg" alt="" />
+                </a>
+            </div>
+            <div className="col-1" style={{width:"80%"}}>
+                <p className="head_txt" style={{display: "none"}}></p>
+                <a className="head_link" href="/user/mlogin">登录
+                    <span style={{left: "3rem"}}></span>
+                </a>
+                <a className="menber_privilege" href="/privilege/index?from=my" data-track="my_vip" style={{display: "none"}}>
+                    <b>V</b>会员专属特权&gt;</a>
+            </div>
+            <a className="to_store row" href="/score">
+                <div>积分商城</div>
+                <div className="score" style={{display: "none"}}>我的积分
+                    <span></span>
+                </div>
+            </a>
+        </div>
+                <div className="headArc">
+                <img src="//sslstatic.xiaoyusan.com/h5/img/my/headArc.jpg" alt="" />
+            </div>
+            </div>
+            )
           }
     })()}
       

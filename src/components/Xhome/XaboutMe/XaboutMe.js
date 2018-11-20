@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // import '../../../assets/body.css'
-import './XaboutMe.css'
+import './XaboutMe.scss'
 // import './XaboutMe.css'
 // 引入组件
 
@@ -15,7 +15,7 @@ class XaboutMe extends Component {
   }
   render () {
     return (
-        <div>
+        <div className="about">
             <div className="pbft_aboutus">
                 <div className="pbft_aboutus_grid grid">
                     <a className="pbft_aboutus_link col-1" style={{textAlign:"center",display: "block"}}>关于我们</a>

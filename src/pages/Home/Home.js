@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Home.css'
-
+// import '../../assets/base.css'
 import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 
 // 引入组件

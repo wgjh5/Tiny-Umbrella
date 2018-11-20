@@ -1,0 +1,701 @@
+.m{
+
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: auto
+}
+
+body {
+    background-color: #f0f0f0;
+    font-family: "Microsoft YaHei"
+}
+
+.mod_container {
+    position: relative;
+    min-height: 100%;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.pbft_aboutus {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.head {
+    background: linear-gradient(to bottom, #8c7fee, #7857f6);
+    color: #fff;
+    padding: 1.755rem 1.17rem;
+    position: relative;
+}
+
+.head_img {
+    position: relative;
+    width: 5.85rem;
+    height: 5.85rem;
+    border: 0.234rem solid #fff;
+    border-radius: 50%;
+    margin: 0 0.936rem 0 0.585rem;
+    background-color: #f1f1f1;
+}
+
+.head_img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%
+}
+
+.head_txt {
+    font-size: 1.638rem;
+}
+
+.head_txt>i {
+    display: inline-block;
+    margin-left: 1.521rem;
+}
+
+.head_txt>a {
+    font-size: 1.404rem;
+    color: #ffe753;
+}
+
+.menber_privilege {
+    display: inline-block;
+    height: 2.34rem;
+    margin-top: 0.585rem;
+    padding: 0 1.404rem;
+    border: solid 1px #ffe753;
+    border-radius: 1.17rem;
+    line-height: 2.223rem;
+    font-size: 1.17rem;
+    color: #ffe753;
+    text-align: center;
+}
+
+.head_link {
+    position: relative;
+    display: block;
+    color: #fff;
+    font-size: 1.638rem;
+    padding-right: 1.638rem;
+    line-height: 1.638rem;
+    /*注意*/
+}
+
+.head_link>span {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.5265rem;
+    right: 0.585rem;
+    width: 1.053rem;
+    height: 1.053rem;
+    border-right: 0.234rem solid #fff;
+    border-bottom: 0.234rem solid #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.head_name {
+    margin-top: 0.234rem;
+    font-size: 1.404rem;
+    color: #fff;
+    text-align: center;
+    max-width: 7.371rem;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.to_store {
+    color: #fff;
+    padding-left: 4.15rem;
+    /* width:224px; */
+    height: 4rem;
+    padding-right: 1rem;
+    background: url("//sslstatic.xiaoyusan.com/h5/img/my/store.png") no-repeat 0.5rem center/3.1rem 3.1rem;
+    /* background-color: rgba(0,0,0,.4); */
+    background-color: rgba(89, 76, 186, 0.5);
+    border-top-left-radius: 1.9305rem;
+    border-bottom-left-radius: 1.9305rem;
+    position: absolute;
+    top: 50%;
+    margin-top: -1.9305rem;
+    right: 0;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+}
+
+.to_store>div:first-child {
+    font-size: 1.2rem;
+}
+
+.to_store>div:last-child {
+    font-size: 0.9rem;
+}
+
+.to_store>div:last-child span {
+    margin-left: 0.4095rem;
+}
+
+.headArc {
+    width: 100%;
+}
+
+.headArc img {
+    width: 100%;
+    font-size: 0;
+}
+
+.nav {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: box;
+    display: flex;
+    background-color: #fff;
+    padding: 1.755rem 0;
+}
+
+.nav_item {
+    display: block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid #dcdcdc
+}
+
+.nav_item:last-child {
+    border-right: none
+}
+
+.nav_txt {
+    font-size: 1.404rem;
+    color: #3c3c3c;
+    margin-top: 0.585rem;
+    line-height: 1
+}
+
+.nav_item>.icon {
+    margin: 0 auto;
+    height: 2.34rem;
+}
+
+.icon_dingdan {
+    width: 3.159rem;
+    background-position: 0 0;
+}
+
+.icon_youhui {
+    width: 3.159rem;
+    background-position: 0 -3.2rem;
+    /*这个地方还没有开始*1.17注意注意背景图片的这里的宽度转了，但是posisition没有转*/
+}
+
+.icon_jindu {
+    width: 3.393rem;
+    background-position: 0 -6.4rem;
+}
+
+.box {
+    background-color: #fff;
+    margin-top: 1.755rem;
+}
+
+.box_tit {
+    font-size: 1.755rem;
+    color: #3c3c3c;
+    font-weight: 400;
+    padding: 1.17rem;
+}
+
+.lists {
+    margin-top: -1px;
+}
+
+.lists_item {
+    position: relative;
+    height: 4.5rem;
+    margin-left: 1.2rem;
+    border-bottom: 1px solid #dcdcdc;
+    padding-right: 3rem
+}
+
+.lists_li:last-child>.lists_item {
+    border-bottom: none;
+}
+
+/* addbydimple */
+
+.form_control {
+    background-image: -webkit-linear-gradient(bottom, #dcdcdc, #dcdcdc, transparent, transparent);
+    background-image: linear-gradient(0deg, #dcdcdc, #dcdcdc, transparent, transparent);
+    background-position: bottom;
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+}
+
+.lists_item:after {
+    content: "";
+    position: absolute;
+    right: 1.4rem;
+    top: 50%;
+    margin-top: -0.4rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-right: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.lists_box {
+    /* margin-left:0.702rem; */
+    /* vertical-align: middle; */
+    margin: 0 .8rem 0 1rem;
+}
+
+.lists_tit {
+    font-size: 1.5rem;
+    color: #3c3c3c;
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.lists_txt {
+    font-size: 1.404rem;
+    color: #969696;
+    line-height: 1.2
+}
+
+.user_tip {
+    text-align: right;
+    font-size: 1.4rem;
+    color: #969696;
+}
+
+.user_tip>span {
+    color: #8c7fee;
+}
+
+.server {
+    height: 13.5rem;
+}
+
+.server_li {
+    float: left;
+    width: 50%;
+    /*height: 5.265rem;*/
+    border-top: solid 1px #dcdcdc;
+    /* background-image: -webkit-linear-gradient(bottom,#dcdcdc,#dcdcdc,transparent,transparent);
+    background-image: linear-gradient(0deg,#dcdcdc,#dcdcdc,transparent,transparent);
+    background-position: bottom;
+    background-size: 100% 1px;
+    background-repeat: no-repeat; */
+    background-color: #fff;
+    height: 4.5rem;
+}
+
+.server_li:not(:nth-of-type(2n+1)) {
+    border-left: solid 1px #dcdcdc;
+    /* 			
+			 background-image: -webkit-linear-gradient(left,#dcdcdc,#dcdcdc,transparent,transparent);
+    background-image: linear-gradient(0deg,#dcdcdc,#dcdcdc,transparent,transparent);
+    background-position: left;
+    background-size: 100% 1px;
+    background-repeat: no-repeat; */
+}
+
+.server_li:nth-of-type(1), .server_li:nth-of-type(2) {
+    border-top: none;
+}
+
+.server_li>a {
+    height: 4.5rem;
+}
+
+.server_li_text {
+    font-size: 1.4rem;
+    color: #3c3c3c;
+}
+
+/* .question{ display: block; padding: 1rem 0; font-size: 1.2rem; color: #666666; text-align: center; }
+
+.question span{ display: inline-block; width: 1.2rem; height: 1.2rem; margin-right: .5rem; border: solid 1px #666666; border-radius: 50%; line-height: 1.1rem; font-weight: bold; font-size: .8rem; color: #666666; text-align: center; vertical-align: .1rem; } */
+
+.add_question {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    /* padding-left: 6.9rem;
+	padding-right: 6.9rem; */
+    padding-top: 1.053rem;
+    padding-bottom: 1.6965rem;
+    background: #f0f0f0;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+}
+
+.add_question .add_lc_pro {
+    font-size: 1.287rem;
+    color: #898989;
+    text-align: center;
+    display: flex;
+    font-family: "Microsoft Yahei";
+}
+
+.add_question .add_lc_pro::before {
+    // /* 背景图片 */
+    // /*图片注意是不是应该用这个大小*/
+    content: '';
+    display: inline-block;
+    width: 1.521rem;
+    height: 1.521rem;
+    margin-right: 0.55rem;
+    background-image: url("//sslstatic.xiaoyusan.com/h5/img/my/addicon/add_pro_03.png");
+    background-repeat: no-repeat;
+    background-size: 1.521rem 1.521rem;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.add_question .add_lc_l {
+    margin: 0 1.3rem;
+    width: 1px;
+    height: 1rem;
+    background-color: #dcdcdc;
+}
+
+.add_question .add_lc_sol {
+    font-size: 1.287rem;
+    color: #898989;
+    text-align: center;
+    display: flex;
+    font-family: "Microsoft Yahei";
+}
+
+.add_question .add_lc_sol::before {
+    /* 背景图片 */
+    content: '';
+    display: inline-block;
+    width: 1.521rem;
+    height: 1.521rem;
+    margin-right: 0.6435rem;
+    background-image: url("//sslstatic.xiaoyusan.com/h5/img/my/addicon/posl_03.png");
+    background-repeat: no-repeat;
+    background-size: 1.521rem 1.521rem;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.invite {
+    display: block;
+    position: absolute;
+    top: 1.755rem;
+    right: -.585rem;
+}
+
+.invite_txt {
+    width: 4.6215rem;
+    height: 3.5685rem;
+    margin-top: 2.457rem;
+}
+
+.invite_redpack {
+    width: 4.212rem;
+    height: 4.8555rem;
+    animation: shake 2s infinite ease;
+    -webkit-animation: shake 2s infinite ease;
+    animation-delay: 1s;
+    -webkit-animation-delay: 1s;
+}
+
+/* 下面的东西我没有改1.17单位 */
+
+ .newicon{ display: block; background: url(//sslstatic.xiaoyusan.com/h5/img/my/newicon/myicon1.png) no-repeat; background-size: 1.7rem 19.2rem; }
+.newicon.myquestion		{ height: 1.6rem; width: 1.4rem; background-position: 0 0; margin: .2rem .8rem 0 1rem; }
+.newicon.myinquire		{ height: 1.3rem; width: 1.6rem; background-position: 0 -2rem; margin: .2rem .8rem 0 1rem; }
+.newicon.myverification	{ height: 1.6rem; width: 1.6rem; background-position: 0 -4rem; margin: .2rem .8rem 0 1rem; }
+.newicon.myrenewal		{ height: 1.6rem; width: 1.6rem; background-position: 0 -6rem; margin: .2rem .8rem 0 1rem; }
+.newicon.myclaims		{ height: 1.7rem; width: 1.6rem; background-position: 0 -8rem; margin: .2rem .8rem 0 1rem; }
+.newicon.myanalyse		{ height: 1.5rem; width: 1.6rem; background-position: 0 -10rem; margin: .2rem .8rem 0 1rem; }
+.newicon.myhealth		{ height: 1.6rem; width: 1.8rem; background-position: 0 -12rem; }
+.newicon.myserver		{ height: 1.9rem; width: 1.8rem; background-position: 0 -14rem; }
+.newicon.myorder		{ height: 2rem; width: 1.8rem; background-position: 0 -15.8rem; margin-top: -.2rem; }
+.newicon.mycoupon		{ height: 1.3rem; width: 1.8rem; background-position: 0 -18rem; margin-top: .2rem; }
+.newicon.icon_xubao		{ height:1.65rem;width: 1.65rem;margin-right: .4095rem; background:url("//sslstatic.xiaoyusan.com/h5/img/my/newicon/myPrice.png") no-repeat center/100% 100%;} 
+
+/* addbydimple */
+
+ .section-1px {
+  position: relative;
+}
+ .section-1px :before, .section-1px :after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    right:-100%;
+    top:0;
+    bottom:-100%;
+    pointer-events: none;
+    -webkit-transform-origin: 0 0;
+  }
+  .section-1px ::before {
+    border-top: 1px solid #dcdcdc;
+  } 
+
+.section-1px ::after {
+    border-bottom: 1px solid red;
+  } 
+
+.newicon {
+    display: block;
+    background: url("//sslstatic.xiaoyusan.com/h5/img/my/addsprit/css_sprites.png") no-repeat;
+    background-size: 2.7rem 39.3rem;
+}
+
+/* 接下来用position */
+
+/* 邀请有红包 */
+
+.newicon.bg-q3 {
+    /* width: 1.5rem; height: 1.75rem; */
+    width: 1.8rem;
+    height: 1.8rem;
+    background-position: -0.4rem -26.45rem;
+    margin: .2rem .9rem 0 1.2rem;
+}
+
+/* 证件号查保单 */
+
+.newicon.bg-q1_03 {
+    /* width: 1.75rem; height: 1.3rem; */
+    width: 1.8rem;
+    height: 1.8rem;
+    background-position: -0.4rem -0.4rem;
+    /* margin:.2rem .8rem 0 1rem; */
+    margin: 0 .9rem 0 1.2rem;
+    margin-top: 0.65rem;
+}
+
+/* 保单验真 */
+
+.newicon.bg-q5_03 {
+    /* width: 1.75rem; height: 1.7rem; */
+    width: 1.8rem;
+    height: 1.8rem;
+    background-position: -0.4rem -21.4rem;
+    margin: .2rem .9rem 0 1.2rem;
+}
+
+/* 申请续保 */
+
+.newicon.bg-q6_03 {
+    /* width: 1.6rem; height: 1.7rem; */
+    width: 1.8rem;
+    height: 1.8rem;
+    background-position: -0.4rem -11.4rem;
+    margin: .2rem .9rem 0 1.2rem;
+}
+
+/* 申请理赔 */
+
+.newicon.bg-q2_03 {
+    /* width: 1.5rem; height: 1.75rem; */
+    width: 1.8rem;
+    height: 1.8rem;
+    background-position: -0.4rem -29rem;
+    margin: .2rem .9rem 0 1.2rem;
+}
+
+/* 被保人保单分析 */
+
+.newicon.bg-q4_03 {
+    /* width: 1.6rem; height: 1.55rem; */
+    width: 1.8rem;
+    height: 1.8rem;
+    background-position: -0.4rem -6.7rem;
+    margin: .2rem .9rem 0 1.2rem;
+}
+
+/* 我的健康告知确认进度 */
+
+.newicon.bg-o3 {
+    width: 1.9rem;
+    height: 1.7rem;
+    background-position: -0.4rem -16.4rem;
+}
+
+/* 我的理赔和售后 */
+
+.newicon.bg-o4 {
+    width: 1.9rem;
+    height: 2.05rem;
+    background-position: -0.4rem -34.1rem;
+    margin-top: 0.1rem;
+}
+
+/* 我的保单 */
+
+.newicon.bg-o5 {
+    width: 1.9rem;
+    height: 2.25rem;
+    background-position: -0.4rem -36.85rem;
+    margin-top: 0.1rem;
+}
+
+/* 我的优惠券 */
+
+.newicon.bg-o2 {
+    width: 1.9rem;
+    height: 1.3rem;
+    background-position: -0.4rem -2.5rem;
+    margin-top: 0.1rem;
+}
+
+.newicon.icon_xubao {
+    /*margin-top: 0.3rem;*/
+    height: 1.65rem;
+    width: 1.9rem;
+    /* margin-right: .4095rem;  */
+    background: url("//sslstatic.xiaoyusan.com/h5/img/my/newicon/myPrice.png") no-repeat center/100% 100%;
+}
+
+@-webkit-keyframes shake {
+    0% {
+        -webkit-transform: rotate(0);
+    }
+    70% {
+        -webkit-transform: rotate(0);
+    }
+    72% {
+        -webkit-transform: rotate(10deg);
+    }
+    74% {
+        -webkit-transform: rotate(0);
+    }
+    76% {
+        -webkit-transform: rotate(-10deg);
+    }
+    78% {
+        -webkit-transform: rotate(0);
+    }
+    80% {
+        -webkit-transform: rotate(10deg);
+    }
+    82% {
+        -webkit-transform: rotate(0);
+    }
+    84% {
+        -webkit-transform: rotate(-10deg);
+    }
+    98% {
+        -webkit-transform: rotate(-10deg);
+    }
+    100% {
+        -webkit-transform: rotate(0);
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(0);
+    }
+    70% {
+        transform: rotate(0);
+    }
+    72% {
+        transform: rotate(10deg);
+    }
+    74% {
+        transform: rotate(0);
+    }
+    76% {
+        transform: rotate(-10deg);
+    }
+    78% {
+        transform: rotate(0);
+    }
+    80% {
+        transform: rotate(10deg);
+    }
+    82% {
+        transform: rotate(0);
+    }
+    84% {
+        transform: rotate(-10deg);
+    }
+    98% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+.guide_layer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    max-width: 750px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 320px;
+    z-index: 100000;
+}
+
+.guide_layer .txt {
+    position: absolute;
+    width: 100%;
+    height: 25.25rem;
+    background: url("//sslstatic.xiaoyusan.com/h5/img/my/guide.png?t=1") no-repeat center/100% 100%;
+    top: 1rem;
+    left: 0;
+}
+
+.guide_layer .btn {
+    position: absolute;
+    width: 11.5rem;
+    height: 4.0rem;
+    top: 22.3rem;
+    left: 11.4rem;
+}
+
+.guide_layer .tool_bar1 {
+    position: absolute;
+    width: 100%;
+    height: 1rem;
+    background: url("//sslstatic.xiaoyusan.com/h5/img/my/toolbar.png") repeat center/100% 1.15rem;
+    top: 0;
+    left: 0;
+}
+
+.guide_layer .tool_bar2 {
+    position: absolute;
+    width: 100%;
+    height: 50.25rem;
+    background: url("//sslstatic.xiaoyusan.com/h5/img/my/toolbar.png") repeat center/100% 1.15rem;
+    top: 26.25rem;
+    left: 0;
+}
+
+
+
+
+}
+
+/* addby dimple */

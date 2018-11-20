@@ -1,22 +1,33 @@
 import React, { Component } from 'react'
 import './Xcontent.css'
 import { connect } from 'react-redux';
-
+import store from "../../../libs/store.js";
 
 
 // import { Route } from 'react-router-dom'
 class Xcontent extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
 
+  constructor (props,context) {
+    console.log(props)
+      
+    super(props,context)
+    this.props = props;
+
+    this.state = {
+        content:0
     }
+
   }
+  
   render () {
     return (
         <div className="listcontent">
-        
-            <div className="content" data-index="1">
+      {(()=>{
+        // console.log(this.state.aa[0].idx)
+        if(this.state.content==0){
+            console.log(66)
+            return (
+                <div className="content" data-index="1">
                 <a href="/insurance/detail?id=106166&amp;chn=yanxuan_h5shouye20180308" className="product_li">
                     <div className="product row middle">
                         <div className="pro_img">
@@ -134,8 +145,11 @@ class Xcontent extends Component {
                     </div>
                 </a>
             </div>
-            {/* =========== */}
-            <div className="content hide" data-index="2">
+            )
+        }else if(this.state.content==1){
+            console.log(77)
+            return (
+                <div className="content " data-index="2">
                 <a href="https://www.xiaoyusan.com/insurance/detail?id=124930&amp;chn=yanxuan_h5shouye20180308" className="product_li">
                     <div className="product row middle">
                         <div className="pro_img">
@@ -224,8 +238,11 @@ class Xcontent extends Component {
                     </div>
                 </a>
             </div>
-            {/* ========== */}
-            <div className="content hide" data-index="3">
+            )
+        }else if(this.state.content==2){
+            console.log(88)
+            return (
+                <div className="content" data-index="3">
                 <a href="/insurance/detail?id=101723&amp;chn=yanxuan_h5shouye20180308" className="product_li">
                     <div className="product row middle">
                         <div className="pro_img">
@@ -285,10 +302,41 @@ class Xcontent extends Component {
                     </div>
                 </a>
             </div>
-        </div>
+        
 
+            )
+        }
+      })()}
+   
+            
+            
+            {/* =========== */}
+           
+            {/* ========== */}
+            </div>
     )
+   
   }
+
+//   componentWillReceiveProps (nextProps){
+//     nextProps.content !== this.props.content && this.setState({
+//         content:nextProps.content
+//     },() => {
+//     //   this.state.content:nextProps //将state更新为nextProps,在setState的第二个参数（回调）可以打印出新的state
+//     console.log(this.state.content)
+//   })
+
+
+
+    componentDidMount(){
+        store.on("show",(data)=>{
+            console.log(data);
+            this.setState({
+                content:data
+            })
+        })
+    
+    }
 }
 
 export default connect((state)=>{
