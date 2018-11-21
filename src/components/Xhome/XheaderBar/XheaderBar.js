@@ -67,6 +67,14 @@ class XheaderBar extends Component {
             </div>
             </div>
             )
+          }else if(this.props.status == "detail"){
+               return (
+                <div>
+                    <div className="banner lazyload">
+                        <img src="https://sslstatic.xiaoyusan.com/h5/img/insurance/main_133820.jpg?t=1541139989" alt="" className="img" />
+                    </div>
+                </div>
+               )
           }
     })()}
       

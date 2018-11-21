@@ -4,7 +4,8 @@ let lyex = {
         position: '温哥华',
         skill: ['jsx', 'ts'],
         name: "lllll",
-        show:""
+        show:"",
+        activeChange:""
     },
     // 事件队列
     list: {},

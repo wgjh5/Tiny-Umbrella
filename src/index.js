@@ -23,7 +23,7 @@ import Xfooter from './components/Xfooter/Xfooter';
 import Search from './pages/Search/Search'
 import BestChoice from './pages/BestChoice/BestChoice'
 import Mine from './pages/Mine/Mine'
-
+import Detail from './pages/Detail/Detail'
 // 创建仓库
 const store = createStore(function (state = {
   // isShow:false,
@@ -125,6 +125,7 @@ ReactDOM.render(
           <Route path="/BestChoice/"  component={BestChoice} />
           <Route path="/Search/" component={Search} />
           <Route path="/Mine/" component={Mine} />
+          <Route path="/Detail/" component={Detail} />
           <Redirect from='/' exact to='/home/Xrecommend' />
         </Switch>
         

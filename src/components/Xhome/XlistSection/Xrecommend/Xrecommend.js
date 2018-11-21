@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Xrecommend.css'
-
+import {Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import Xtravel from '../Xtravel/Xtravel';
 
@@ -35,7 +35,7 @@ class Xrecommend extends Component {
   
               (()=>{
                         return (
-                            <a className="article row">
+                            <Link to={'/Detail'}  className="article row">
                             <div className="section_img">
                                 <img src="https://sslstatic.xiaoyusan.com/h5/img/m_index/article/h5item_1539328597.jpg" data-original="https://sslstatic.xiaoyusan.com/h5/img/m_index/article/h5item_1539328597.jpg"
                                     alt="" className="article_img lazy" style={{display: "inline"}} />
@@ -66,7 +66,7 @@ class Xrecommend extends Component {
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </Link>
                         )
     
         })()}

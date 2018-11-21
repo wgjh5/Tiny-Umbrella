@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Xparents.css'
-
+import {Link } from 'react-router-dom'
 
 
 
@@ -17,7 +17,7 @@ class Xparents extends Component {
   render () {
     
     return(
-            <a className="article row" >
+            <Link to={"/Detail"} className="article row" >
         <div className="section_img">
             <img src="https://sslstatic.xiaoyusan.com/h5/img/m_index/article/h5item_1539328597.jpg" data-original="https://sslstatic.xiaoyusan.com/h5/img/m_index/article/h5item_1539328597.jpg"
                 alt="" className="article_img lazy" style={{display: "inline"}} />
@@ -48,7 +48,7 @@ class Xparents extends Component {
                 </div>
             </div>
         </div>
-    </a>
+    </Link>
     
        
     )
