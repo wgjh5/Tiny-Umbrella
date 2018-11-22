@@ -13,6 +13,7 @@ class Xcomment extends Component {
   }
   render () {
     return (
+        <div id="#components-anchor-demo-fixed">
         <div id="auto3">
             <div className="box comment_box clearfix">
                 <div className="box_tit">用户评价（13条）</div>
@@ -79,6 +80,7 @@ class Xcomment extends Component {
                     </div>
                 </a>
             </div>
+        </div>
         </div>
     )
   }

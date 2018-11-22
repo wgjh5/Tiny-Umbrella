@@ -30,6 +30,11 @@ class Xrecommend extends Component {
     return (
         <div>
             <Xtravel />
+            <Xtravel />
+            <Xtravel />
+            <Xtravel />
+            <Xtravel />
+            <Xtravel />
           {
               
   

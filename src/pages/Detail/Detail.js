@@ -7,6 +7,7 @@ import Xintroduce from '../../components/Xdetail/Xintroduce/Xintroduce';
 import Xcomment from '../../components/Xdetail/Xcomment/Xcomment';
 import Xsettlement from '../../components/Xdetail/Xsettlement/Xsettlement';
 import Xdetailfooter from '../../components/Xdetail/Xdetailfooter/Xdetailfooter';
+import Xbackhome from '../../components/Xdetail/Xbackhome/Xbackhome';
 // 引入组件
 
 
@@ -33,9 +34,11 @@ class Detail extends Component {
                         <Xdetailfooter />
                     </div>
                 </div>
+                <Xbackhome />
             <a href="javascript:;" data-track="detail_follow" className="concern">关注小雨伞保险，获取更多保险特卖资讯 &gt;&gt;</a>
 
             </div>
+            
         </div>
     )
   }

@@ -5,7 +5,8 @@ let lyex = {
         skill: ['jsx', 'ts'],
         name: "lllll",
         show:"",
-        activeChange:""
+        activeChange:"",
+        toggleChildren:""
     },
     // 事件队列
     list: {},

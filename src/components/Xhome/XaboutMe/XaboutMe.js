@@ -27,8 +27,8 @@ class XaboutMe extends Component {
                     {/* <!-- <p style="color:#8c7fee;font-size:1.1rem;">微信公众号：xysbaoxian</p> --> */}
                 </div>
             </div>
-            <a id="activityBtn" className="activity_btn" >
-            <img src="https://sslstatic.xiaoyusan.com/act/img/1541755778.png" alt="" /></a>
+            {/* <a id="activityBtn" className="activity_btn" >
+            <img src="https://sslstatic.xiaoyusan.com/act/img/1541755778.png" alt="" /></a> */}
     </div>
     )
   }

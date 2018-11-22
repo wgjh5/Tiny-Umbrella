@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 // 引入store
 import store from "../../../libs/store.js";
-
+import sss from "swiper"
 class Xnav extends Component {
   constructor (props) {
     super(props);
@@ -14,6 +14,7 @@ class Xnav extends Component {
     this.state = {
         isActive:this.props.tab,
         n:0,
+        c:0,
         nav:[{
             title:"成人",
             isNav:true
@@ -23,10 +24,42 @@ class Xnav extends Component {
         },{
             title:"父母",
             isNav:false
+        }],
+        children:[{
+            title:"全部",
+            ischildren:true
+        },{
+            title:"重疾险",
+            ischildren:false
+        },{
+            title:"门诊住院险",
+            ischildren:false
+        },{
+            title:"意外险",
+            ischildren:false
         }]
        
     }
   }
+  slide(){
+        var mySwiper = new sss('.ss',{
+    slidesPerView : 1000,
+    spaceBetween : "1",
+    // spaceBetween : '50%'
+    })
+}
+toggleChildren(index){
+    this.setState({
+        c:index
+    })
+    store.emit("toggleChildren",index);
+}
+
+componentDidMount(){
+    this.slide()
+}
+  
+
 //   sendShow(e){
 //     // 发送数据
 //     store.emit("show",e.target.value);
@@ -44,7 +77,7 @@ class Xnav extends Component {
                     <div id="sticky" className="sticky_box">
                     <div className="fiexdhead">
                         <div className="nav grid middle">
-                            <div className="swiper-container col-1 swiper-container-horizontal swiper-container-free-mode" id="nav" style={{paddingBottom:"0"}}>
+                            <div className="swiper-container ss col-1 swiper-container-horizontal swiper-container-free-mode" id="nav" style={{paddingBottom:"0"}}>
                                 <div className="swiper-wrapper" style={{transform: "[translate3d(0px, 0px, 0px)]"}}>
                                 {(()=>{
                                     return this.props.navs.map((item,index) => {
@@ -70,6 +103,25 @@ class Xnav extends Component {
                             })
                         })()}
                     </nav>
+                )
+            }else if(this.props.status=="children"){
+                return (
+                    <div id="fiexdwrap" className="fixedwrap" >
+                        <div className="fiexdhead">
+                            <div className="fiexdhead_box">
+                            {(()=>{
+                               return this.state.children.map((item,index)=>{
+                                    return(
+                                        <a href="javascript:;" key={index} onClick={this.toggleChildren.bind(this,index)} className={this.state.c===index?"fiexd_item active":"fiexd_item"}>{item.title}</a>
+                                    )
+                                })
+                            })()}
+                                {/* <a href="javascript:;" className="fiexd_item">重疾险</a>
+                                <a href="javascript:;" className="fiexd_item">门诊住院险</a>
+                                <a href="javascript:;" className="fiexd_item">意外险</a> */}
+                            </div>
+                        </div>
+                    </div>
                 )
             }
         })()}
@@ -107,6 +159,11 @@ export default connect((state)=>{
             //   console.log(e)
             store.emit("show",index);
         }
+        
+        
+              // 发送数据
+            //   console.log(e)
+            
     }
 })(Xnav);
 

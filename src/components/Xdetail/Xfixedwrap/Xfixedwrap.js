@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Xfixedwrap.scss'
-import store from "../../../libs/store.js";
-import Item from '../../../../node_modules/antd/lib/list/Item';
+import { Anchor } from 'antd';
+const { Link } = Anchor;
 class Xfixedwrap extends Component {
   constructor (props) {
     super(props)
@@ -27,28 +27,32 @@ class Xfixedwrap extends Component {
         }]
     }
   }
-  componentWillMount(){
-        window.addEventListener('scroll', this.handleScroll.bind(this));	
+  componentWDidMount(){
+    window.removeEventHandle('scroll', this.handleScroll.bind(this));	
+        	
     }
-        
+    componentWillMount(){
+        window.addEventListener('scroll', this.handleScroll.bind(this));
+    }
+    // removeEventHandle(box,'mouseover',clickhandle,false); 
     handleScroll(){
-        if(window.scrollY>=150){
+        if(window.scrollY>=120){
             // document.querySelector(".fixedwrap").style.display="block"
             this.setState({
                 idx:"0",
                 isBlock:true
             })
-             if(window.scrollY>=1157){
+             if(window.scrollY>=1150){
                 console.log(777777777)
                 this.setState({
                     idx:"1"
                 })
-               if(window.scrollY>=4805){
+               if(window.scrollY>=4500){
                 this.setState({
                     idx:"2"
 
                 })
-                if(window.scrollY>=5100){
+                if(window.scrollY>=5000){
                     this.setState({
                         idx:"3"
     
@@ -56,7 +60,7 @@ class Xfixedwrap extends Component {
                    }
                }
             }
-        }else if(window.scrollY<180){
+        }else if(window.scrollY<150){
             console.log(55555555555)
             this.setState({
                 isBlock:false
@@ -68,63 +72,103 @@ class Xfixedwrap extends Component {
         
     }
     findlocation(index){
-      
-        // y -= 100;
-
-        
        var timer1 = setInterval(function(){
         var currentTop1 = window.scrollY;
-        var speed1 = Math.floor((160-currentTop1)/10);
-        currentTop1 += speed1;
-        //  =========
-       
-        // ============
-        
-        // ============
-     
+        var speed1 ;
             if(index==0){
-                window.scrollTo(0,currentTop1);
-                if(window.scrollY<=160){
+                if(currentTop1>160){
+                    speed1  = -Math.floor((currentTop1-160)/10);
+                    currentTop1 += speed1;
+                    // currentTop1 = -currentTop1
+                   window.scrollTo(0,currentTop1);
+                   if(window.scrollY<=180){
                     clearInterval(timer1);
                 }
+                }else if(currentTop1<160){
+                    speed1  = Math.floor((160-currentTop1)/10);
+                    currentTop1 += speed1;
+                  window.scrollTo(0,currentTop1);
+                    if(window.scrollY>=140){
+                        clearInterval(timer1);
+                    }
+                }
+               
+                
                 
             }
         },30)
         var timer2 = setInterval(function(){
             var currentTop2 = window.scrollY;
-            var speed2 = Math.floor((1160-currentTop2)/10);
-            currentTop2 += speed2;
+            
             if(index==1){
-                window.scrollTo(0,currentTop2)
-                if(window.scrollY<=1160){
-                    clearInterval(timer2);
+                if(currentTop2>1160){
+                    var speed2 = -Math.floor((currentTop2-1160)/10);
+                    currentTop2 += speed2;
+                    
+                   window.scrollTo(0,currentTop2)
+                    if(window.scrollY<=1170){
+                        clearInterval(timer2);
+                    }
+                }else if(currentTop2<1160){
+                    var speed2 = Math.floor((1160-currentTop2)/10);
+                    currentTop2 += speed2;
+                  window.scrollTo(0,currentTop2)
+                    if(window.scrollY>=1150){
+                        clearInterval(timer2);
+                    }
                 }
+                
+               
             }
         },30)
         var timer3 = setInterval(function(){
             var currentTop3 = window.scrollY;
-        var speed3 = Math.floor((4810-currentTop3)/10);
-        currentTop3 += speed3;
+            
         if(index==2){
-
-            window.scrollTo(0,currentTop3)
-            if(window.scrollY<=4810){
+            if(currentTop3>4810){
+                var speed3 = -Math.floor((currentTop3-4810)/10);
+                 currentTop3 += speed3;
+                window.scrollTo(0,currentTop3)
+                if(window.scrollY<=4820){
+                    clearInterval(timer3);
+                }
+            }else if(currentTop3<4810){
+                var speed3 = Math.floor((4810-currentTop3)/10);
+                 currentTop3 += speed3;
+               window.scrollTo(0,currentTop3)
+               if(window.scrollY>=4800){
                 clearInterval(timer3);
             }
+            }
+            
+           
         } 
         },30)
         var timer4 = setInterval(function(){
             var currentTop4 = window.scrollY;
-            var speed4 = Math.floor((5100-currentTop4)/10);
-            currentTop4 += speed4;
-                console.log(666)
+           
+                
             if(index==3){
-                window.scrollTo(0,currentTop4)
-                if(window.scrollY<=5102){
-                    clearInterval(timer4);
+                if(currentTop4>5104){
+                    var speed4 = -Math.floor((currentTop4-5104)/10);
+                    currentTop4 += speed4;
+                    window.scrollTo(0,currentTop4)
+                    if(window.scrollY<=5110){
+                        clearInterval(timer4);
+                    }
+                }else if(currentTop4<5104){
+                    var speed4 = Math.floor((5104-currentTop4)/10);
+                    currentTop4 += speed4;
+                    window.scrollTo(0,currentTop4)
+                    if(window.scrollY>=5050){
+                        clearInterval(timer4);
+                    }
                 }
+               
+            
+                console.log(666)
             }
-        })
+        },30)
           
         
         // if(index==0){
@@ -148,9 +192,11 @@ class Xfixedwrap extends Component {
       <div className='fixedwrap' style={{display: (this.state.isBlock==true) ? "block" : "none"}}>
         <div className='fiexdhead'>
           <div className='fiexdhead_box row' >
+    
                 {(()=>{
                     return this.state.detailArr.map((item,index)=>{
                         return (
+                         
                             <a href='javascript:;' key={index} onClick={this.findlocation.bind(this,index)}  className={this.state.idx==index?`col fiexd_item active ${item.aClass} `:`col fiexd_item ${item.aClass}`}>
                                 <i  className={`fiexd_icon fixednav ${item.iClass}`}></i>
                                 <p  className='fiexd_p'> {item.title} </p>

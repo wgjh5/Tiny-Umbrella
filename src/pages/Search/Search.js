@@ -6,7 +6,7 @@ import './Search.scss'
 // 引入组件
 import Xfooter from '../../components/Xfooter/Xfooter';
 
-import { Route } from 'react-router-dom'
+// import { Route } from 'react-router-dom'
 import XInsuranceChannel from '../../components/Xserach/XInsuranceChannel/XInsuranceChannel';
 import Xservice from '../../components/Xserach/Xservice/Xservice';
 import Xactuary from '../../components/Xserach/Xactuary/Xactuary';
@@ -19,6 +19,7 @@ class search extends Component {
   }
   render () {
     return (
+      <div>
       <div className="Search">
         <div className="container iphonex_padding">
         <XInsuranceChannel />
@@ -27,6 +28,7 @@ class search extends Component {
         
       </div>
       <Xfooter />
+      </div>
       </div>
     )
   }

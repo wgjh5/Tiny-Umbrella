@@ -18,12 +18,14 @@ import { createStore } from 'redux'
 
 // 父组件
 import Home from './pages/Home/Home'
-import Xfooter from './components/Xfooter/Xfooter';
+
 
 import Search from './pages/Search/Search'
 import BestChoice from './pages/BestChoice/BestChoice'
 import Mine from './pages/Mine/Mine'
 import Detail from './pages/Detail/Detail'
+
+import ChildrensInsurance from './pages/ChildrensInsurance/ChildrensInsurance'
 // 创建仓库
 const store = createStore(function (state = {
   // isShow:false,
@@ -126,6 +128,8 @@ ReactDOM.render(
           <Route path="/Search/" component={Search} />
           <Route path="/Mine/" component={Mine} />
           <Route path="/Detail/" component={Detail} />
+          <Route path="/ChildrensInsurance" component={ChildrensInsurance} />
+
           <Redirect from='/' exact to='/home/Xrecommend' />
         </Switch>
         

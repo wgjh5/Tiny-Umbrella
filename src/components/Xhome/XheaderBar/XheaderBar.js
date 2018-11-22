@@ -4,7 +4,7 @@ import './XheaderBar.css'
 
 
 
-// import { Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 class XheaderBar extends Component {
   constructor (props) {
     super(props)
@@ -75,6 +75,15 @@ class XheaderBar extends Component {
                     </div>
                 </div>
                )
+          }else if(this.props.status == "children"){
+            return(
+            <div className="headBar clearfix">
+                <img src="//sslstatic.xiaoyusan.com/h5/img/m_index_v2/logo.png?t=20180302" alt="" style={{width:"168px",height:"18px"}}/>
+                <Link to="/" className="head_link" data-track="pindao_topbar_shouye">首页
+                    <span></span>
+                </Link>
+            </div>
+            )
           }
     })()}
       
