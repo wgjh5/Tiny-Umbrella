@@ -15,6 +15,7 @@ class Xnav extends Component {
         isActive:this.props.tab,
         n:0,
         c:0,
+        dingwei:false,
         nav:[{
             title:"成人",
             isNav:true
@@ -54,9 +55,30 @@ toggleChildren(index){
     })
     store.emit("toggleChildren",index);
 }
-
+// dingwei(){
+//     console.log(window.scrollY)
+//    if(window.scrollY>172){
+//         this.setState({
+//             dingwei:true
+//         })
+//    }else if(window.scrollY<172){
+//     this.setState({
+//         dingwei:false
+//     })
+//    }
+    
+// }
+// sendStatus(){
+//     console.log(666)
+//     console.log(this.props)
+//     dispatch({
+//         type:"sendStatus",
+//         statushome:"home"
+//       })
+// }
 componentDidMount(){
     this.slide()
+    // window.addEventListener("scroll",this.dingwei.bind(this))
 }
   
 
@@ -68,9 +90,10 @@ componentDidMount(){
 //         searchValue:e.target.value
 //     })
 // }
+
   render () {
     return (
-        <div>
+        <div className="fixedwrap sticky_box">
         {(()=>{
             if (this.props.tab>=0){
                 return (
@@ -145,6 +168,11 @@ export default connect((state)=>{
                 index: index,
                 isShow:true
               })
+              dispatch({
+                type:"sendStatus",
+                statushome:"home"
+              })
+   
         },
         toggleNav(index,e){
             this.setState({

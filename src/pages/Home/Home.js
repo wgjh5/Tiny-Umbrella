@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import './Home.css'
+import './Home.scss'
 // import '../../assets/base.css'
 import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
-
+import { connect } from 'react-redux';
 // 引入组件
 
 // import Xfooter from '../../components/Xfooter/Xfooter'
@@ -60,7 +60,7 @@ class Home extends Component {
  
   render () {
     return (
-      <div>
+      <div className="home">
         
         <XheaderBar status={this.state.status}/>
         <XswiperContainer />
@@ -85,8 +85,14 @@ class Home extends Component {
     )
   }
   // componentDidMount(){
-  //   this.togolle();
+  //   this.props.sendStatus();
   // }
 }
 
-export default Home
+export default connect((state)=>{
+  return state
+},(dispatch)=>{
+    return {
+        
+    }
+})(Home)

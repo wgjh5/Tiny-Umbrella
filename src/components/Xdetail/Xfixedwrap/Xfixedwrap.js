@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Xfixedwrap.scss'
-import { Anchor } from 'antd';
-const { Link } = Anchor;
+
+import '../../../pages/Detail/Detail.scss'
 class Xfixedwrap extends Component {
   constructor (props) {
     super(props)
@@ -189,7 +189,7 @@ class Xfixedwrap extends Component {
       
     //   style={{display:"none"}}
     return ( 
-      <div className='fixedwrap' style={{display: (this.state.isBlock==true) ? "block" : "none"}}>
+      <div className='fixedwrap aaa' style={{display: (this.state.isBlock==true) ? "block" : "none"}}>
         <div className='fiexdhead'>
           <div className='fiexdhead_box row' >
     

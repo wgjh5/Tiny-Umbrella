@@ -49,9 +49,9 @@ class XheaderBar extends Component {
             </div>
             <div className="col-1" style={{width:"80%"}}>
                 <p className="head_txt" style={{display: "none"}}></p>
-                <a className="head_link" href="/user/mlogin">登录
+                <Link className="head_link" to={"/Register"}>登录
                     <span style={{left: "3rem"}}></span>
-                </a>
+                </Link>
                 <a className="menber_privilege" href="/privilege/index?from=my" data-track="my_vip" style={{display: "none"}}>
                     <b>V</b>会员专属特权&gt;</a>
             </div>

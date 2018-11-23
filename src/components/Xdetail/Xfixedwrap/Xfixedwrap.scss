@@ -1,0 +1,45 @@
+.aaa{
+
+
+.fiexd_item {
+    position: relative;
+    height: 100%;
+    background-color: #fff;
+    margin: 0 1.5rem;
+    color: #fff;
+    z-index: 100
+}
+
+.fiexd_item.active {
+    border-bottom: 2px solid #8c7fee
+}
+
+.fiexd_item:after {
+    position: absolute;
+    top: 1.7rem;
+    right: -1.5rem;
+    width: 1px;
+    height: 2.9rem;
+    background-color: #e2e5e7;
+    content: ""
+}
+
+.fiexd_item:last-child:after {
+    width: 0
+}
+
+.fiexd_item .fiexd_icon {
+    margin-top: 1rem
+}
+
+.fiexd_item .fiexd_p {
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    color: #999;
+    text-align: center
+}
+
+.fiexd_item.active .fiexd_p {
+    color: #8c7fee
+}
+}

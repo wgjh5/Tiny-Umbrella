@@ -6,7 +6,8 @@ let lyex = {
         name: "lllll",
         show:"",
         activeChange:"",
-        toggleChildren:""
+        toggleChildren:"",
+        togglehome:""
     },
     // 事件队列
     list: {},

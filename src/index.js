@@ -2,15 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 // import './index.css'
 import './assets/base.scss'
-import './assets/body.css'
+import './assets/body.scss'
+
 // 路由引入
 import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
-// import { Redirect } from 'react-router'
-// import { HashRouter , Route , Redirect } from 'react-router-dom'
-// 
+
+// 引入axios
+import axios from 'axios'
+
 
 // import App from './App'
-import * as serviceWorker from './serviceWorker'
 
 // redux引入
 import { Provider, connect } from 'react-redux'
@@ -24,11 +25,16 @@ import Search from './pages/Search/Search'
 import BestChoice from './pages/BestChoice/BestChoice'
 import Mine from './pages/Mine/Mine'
 import Detail from './pages/Detail/Detail'
-
+import Login from './pages/Login/Login'
+import Register from './pages/Register/Register'
 import ChildrensInsurance from './pages/ChildrensInsurance/ChildrensInsurance'
+
+// ==============
+import * as serviceWorker from './serviceWorker'
+React.axios = axios
 // 创建仓库
 const store = createStore(function (state = {
-  // isShow:false,
+  statushome:"",
     navs: [{
       title: '推荐',
       href: '/home/Xrecommend',
@@ -101,6 +107,12 @@ const store = createStore(function (state = {
               content
           }
           break;
+          case 'sendStatus':
+            return {
+                ...state,
+                statushome:action.statushome
+            }
+            break;
     default:
       return state
   }
@@ -129,7 +141,8 @@ ReactDOM.render(
           <Route path="/Mine/" component={Mine} />
           <Route path="/Detail/" component={Detail} />
           <Route path="/ChildrensInsurance" component={ChildrensInsurance} />
-
+          <Route path="/Login" component={Login} />
+          <Route path="/Register" component={Register} />
           <Redirect from='/' exact to='/home/Xrecommend' />
         </Switch>
         

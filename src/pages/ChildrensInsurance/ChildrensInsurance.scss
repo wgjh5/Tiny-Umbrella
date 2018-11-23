@@ -1,4 +1,4 @@
-@charset "UTF-8";
+.ccc{
 * {
     -webkit-tap-highlight-color: transparent;
     outline: 0;
@@ -93,7 +93,8 @@ body {
     -webkit-user-select: none;
     user-select: none;
     background-color: #fff;
-    line-height: 1.5
+    line-height: 1.5;
+   
 }
 
 input[type=text],
@@ -667,7 +668,7 @@ body {
 }
 
 .icon {
-    background: url(/h5/img/class/icon.png) no-repeat;
+    background: url(https://sslstatic.xiaoyusan.com/h5/img/class/icon.png) no-repeat;
     background-size: 5rem 41.1rem;
 }
 
@@ -1466,4 +1467,6 @@ body {
     width: 6.5rem;
     height: 3.15rem;
     background-size: 100%;
+}
+
 }
