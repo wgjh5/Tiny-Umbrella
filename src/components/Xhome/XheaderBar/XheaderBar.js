@@ -5,14 +5,56 @@ import './XheaderBar.css'
 
 
 import { Link } from 'react-router-dom'
+import cookie from '../../../libs/cookie.js'
+// import store from '../../../libs/store.js'
 class XheaderBar extends Component {
   constructor (props) {
     super(props)
     this.props = props;
     console.log(this.props.status)
     this.state = {
-
+        name:"",
+        m:props.status
     }
+  
+  }
+  getName(){
+    // console.log(cookie.getCookie("name"))
+    if(cookie.getCookie("name") != undefined){
+        let a = cookie.getCookie("name").slice(0,2);
+        let b = cookie.getCookie("name").slice(6);
+        let c = a+"****"+b
+        console.log(c)
+
+        this.setState({
+            name:c,
+            m:"mined"
+        })
+    }else if(cookie.getCookie("name") == undefined){
+        return;
+    }
+  }
+  toggleheader(){
+      console.log(666)
+    // store.on("toggleheader","mined")
+    // store.on("toggleheader",(data)=>{
+    //     console.log(data);
+    //     this.setState({
+    //         m:data
+    //     })
+    // })
+    console.log(this.state.m)
+    
+    
+   
+
+}
+componentWillMount(){
+    this.toggleheader()
+}
+  componentDidMount(){
+      this.getName()
+      
   }
   render () {
    return( <div>
@@ -38,7 +80,7 @@ class XheaderBar extends Component {
             <img src="https://sslstatic.xiaoyusan.com/h5/img/yanxuan/banner3.jpg" alt="" />
         </div>
            )
-          }else if(this.props.status == "mine"){
+          }else if(this.state.m == "mine"){
             return (
               <div>
               <div className="head grid middle">
@@ -82,6 +124,30 @@ class XheaderBar extends Component {
                 <Link to="/" className="head_link" data-track="pindao_topbar_shouye">首页
                     <span></span>
                 </Link>
+            </div>
+            )
+          }else if(this.state.m == "mined"){
+            return (
+                <div className="head grid middle">
+                
+                <div className="head_img">
+                    <a href="https://www.xiaoyusan.com/UserProfile/index/home/main">
+                        <img src="//sslstatic.xiaoyusan.com/h5/img/my/top_logo.jpg" alt="" />
+                    </a>
+                </div>
+                <div className="col-1"  style={{width:"80%"}}>
+                    <p className="head_txt" >{this.state.name}</p>
+                    <a className="head_link"></a>
+                    <a className="menber_privilege" href="/privilege/index?from=my" data-track="my_vip">
+                        <b>V1</b>会员专属特权&gt;</a>
+                </div>
+                <a className="to_store row" href="/score">
+                    <div>积分商城</div>
+                    <div className="score" >我的积分
+                        <span>0</span>
+                    </div>
+                </a>
+               
             </div>
             )
           }

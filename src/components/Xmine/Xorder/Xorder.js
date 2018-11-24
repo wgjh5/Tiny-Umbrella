@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Xorder.css'
+import './Xorder.scss'
 
 class Xorder extends Component {
   constructor (props) {
@@ -73,7 +73,7 @@ class Xorder extends Component {
     <div className="box" style={{margin: "1rem 0 0"}}>
     <ul className="server">
         <li className="server_li">
-            <a className="grid middle  border-1px " href="/renewal/myList?chn=gerenzhongxin" data-track="my_continue">
+            <a className="grid middle  border-1px " href="/renewal/myList?chn=gerenzhongxin" data-track="my_continue" style={{width:"50%"}}>
                 <i className="newicon bg-q6_03"></i>
                 <p className="server_li_text col-1">申请续保
                     <span style={{display: "none", width: "2.2rem", lineHeight: "1.2rem", fontSize: "1rem", borderRadius: "1.2rem", backgroundColor: "rgb(250, 54, 59)", textAlign: "center", fontFamily: "aral", color: "rgb(255, 255, 255)", verticalAlign: "0.1rem", marginLeft: "0.4rem"}}></span>
@@ -81,19 +81,19 @@ class Xorder extends Component {
             </a>
         </li>
         <li className="server_li border-1px">
-            <a className="grid middle" href="/my/claimsdeal" data-track="my_claim">
+            <a className="grid middle" href="/my/claimsdeal" data-track="my_claim" style={{width:"50%"}}>
                 <i className="newicon bg-q2_03"></i>
                 <p className="server_li_text col-1">申请理赔</p>
             </a>
         </li>
         <li className="server_li border-1px">
-            <a className="grid middle" href="/static/page/name/license?page=section3" data-track="my_true">
+            <a className="grid middle" href="/static/page/name/license?page=section3" data-track="my_true" style={{width:"50%"}}>
                 <i className="newicon bg-q5_03"></i>
                 <p className="server_li_text col-1">保单验真</p>
             </a>
         </li>
         <li className="server_li border-1px">
-            <a className="grid middle" href="/my/dealquery" data-track="my_dealquery">
+            <a className="grid middle" href="/my/dealquery" data-track="my_dealquery" style={{width:"50%"}}>
                 <i className="newicon bg-q1_03"></i>
                 <p className="server_li_text col-1">证件号查保单</p>
             </a>
@@ -105,7 +105,7 @@ class Xorder extends Component {
             </a>
         </li> --> */}
         <li className="server_li">
-            <a className="grid middle" href="/insurancedlist/index.html#/familypolicy?chn=deallist" data-track="my_analyse">
+            <a className="grid middle" href="/insurancedlist/index.html#/familypolicy?chn=deallist" data-track="my_analyse" style={{width:"50%"}}>
                 <i className="newicon bg-q4_03 "></i>
                 <p className="server_li_text col-1">家庭保单管理
                     <img style={{width: "2.2rem",height: "1.1rem",marginTop: ".4rem"}} src="//sslstatic.xiaoyusan.com/h5/img/my/inew.jpg"
@@ -115,7 +115,7 @@ class Xorder extends Component {
         </li>
         <li className="server_li">
             {/* <!-- 判断是否新人来展示不同的文案和入口 simba 20180901 melon需求 --> */}
-            <a className="grid middle" href="//www.xiaoyusan.com/privilege/welfareV2?chn=my_newwelfare" data-track="my_question">
+            <a className="grid middle" href="//www.xiaoyusan.com/privilege/welfareV2?chn=my_newwelfare" data-track="my_question" style={{width:"50%"}}>
                 <i className="newicon bg-q3"></i>
                 <p className="server_li_text col-1">新人福利 </p>
             </a>

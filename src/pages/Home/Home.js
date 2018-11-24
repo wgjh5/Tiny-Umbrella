@@ -28,7 +28,8 @@ class Home extends Component {
     super(props)
     this.state = {
         togolleClass:0,
-        status:"home"
+        status:"home",
+        homeArr:[]
     }
 
     // 根据路径给togoleclass赋值
@@ -57,7 +58,22 @@ class Home extends Component {
     }
   }
   
- 
+  requestData(){
+    var self = this;
+    React.axios.get('http://localhost:3001/users/home').then((response) => {
+      console.log(response.data)
+     self.setState({
+      homeArr:response.data
+     })
+    
+    }).catch(function (error) {
+      console.log(error)
+    })
+  }
+  componentDidMount(){
+    this.requestData();
+    
+  }
   render () {
     return (
       <div className="home">
@@ -68,7 +84,7 @@ class Home extends Component {
         <Xnav tab={this.state.togolleClass}/>
         <div className="section" id="list_section">
         <div className='section_item' id='article_0'>
-          <Route path='/home/Xrecommend' component={Xrecommend} />
+          <Route path='/home/:homeArr' component={Xrecommend} />
           <Route path="/home/Xchildren"  component={Xchildren} />
           <Route path="/home/Xadult" component={Xadult} />
           <Route path="/home/Xparents" component={Xparents} />

@@ -5,7 +5,7 @@ import Xfooter from '../../components/Xfooter/Xfooter';
 import XheaderBar from '../../components/Xhome/XheaderBar/XheaderBar';
 import Xorder from '../../components/Xmine/Xorder/Xorder';
 import Xpropblem from '../../components/Xmine/Xproblem/Xproblem';
-
+import cookie from '../../libs/cookie.js'
 // import { Route } from 'react-router-dom'
 class mine extends Component {
   constructor (props) {
@@ -14,13 +14,25 @@ class mine extends Component {
         mine:"mine"
     }
   }
+  getCookie(){
+     if(cookie.getCookie("name") !=undefined){
+        this.setState({
+          mine:"mined"
+        })
+     }else if(cookie.getCookie("name") == undefined){
+      return;
+  }
+  }
+  componentDidMount(){
+    this.getCookie()
+  }
   render () {
     return (
       <div className="m" style={{height: "100%"}}>
         <div className="mod_container iphonex_padding" >
-            <XheaderBar status="mine"/>
+            <XheaderBar status={this.state.mine}/>
             <Xorder />
-            <Xpropblem />
+            <Xpropblem name={cookie.getCookie("name")}/>
             <Xfooter />
             <div style={{height: "17.5rem"}}>
               </div>

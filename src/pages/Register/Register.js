@@ -1,23 +1,51 @@
 import React, { Component } from 'react'
 import './Register.scss'
 // 引入组件
-
-
-import { Link } from 'react-router-dom'
+// import cookie from 'react-cookies'
+import cookie from '../../libs/cookie.js'
+// import store from '../../libs/store.js'
+import { Link , withRouter  } from 'react-router-dom'
 class Login extends Component {
   constructor (props) {
     super(props)
     this.state = {
- 
+        statusDl:false
+        // aaa:cookie.load('1232')
     }
   }
   reginter(){
-    
+    var self = this;
+      React.axios.post('http://localhost:3001/users/register', {
+        params: {
+          email: this.refs.username.value,
+          password:this.refs.password.value
+        }
+      }).then((response) => {
+        console.log(response.data)
+        if(response.data=="succees"){
+          console.log(222)
+          this.setState({
+            statusDl:true
+          })
+          // this.setState({ aaa:self.refs.username.value })
+          // cookie.save('username', this.state.aaa, { path: '/' })
+          // cookie.save("username",self.refs.username.value)
+          cookie.setCookie("name",self.refs.username.value)
+          // store.emit("toggleheader","mined")
+          this.props.history.push('/home/Xrecommend')
+        }
+      
+      }).catch(function (error) {
+        console.log(error)
+      })
     console.log(this.refs.username.value)
     console.log(this.refs.password.value)
   }
+  // componentWillMount() {
+  //   this.aaa =  { userId: cookie.load('userId') }
+  // }
   componentDidMount(){
-    this.reginter()
+    // this.reginter()
   }
   render () {
     return (
@@ -45,7 +73,7 @@ class Login extends Component {
     }} id="get_verify">获取验证码</a>
                 <a ass="col-0" href="javascript:;" className="btn disabled" style={{display:"none"}} id="time_left">剩余59秒</a>
             </div> */}
-            <a href="javascript:;" className="buy" id="query">确定</a>
+            <a href="javascript:;" className="buy" onClick={this.reginter.bind(this)} id="query">确定</a>
         </form>
         {/* <div className="mod_tips" id="divTips" style={{display:"none"}}>
         </div> */}

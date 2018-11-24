@@ -11,9 +11,10 @@ import Xtravel from '../Xtravel/Xtravel';
 
 class Xrecommend extends Component {
   constructor (props) {
+    console.log(props)
     super(props)
     // this.props = props;
-    console.log( this.props.navs[0].isShow)
+    
     this.state = {
         someThings: this.props.navs[0].isShow
     }

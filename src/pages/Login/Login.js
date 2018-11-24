@@ -8,29 +8,52 @@ class Login extends Component {
   constructor (props) {
     super(props)
     this.state = {
- 
+        require:false
     }
   }
+  email(){
+    React.axios.post('http://localhost:3001/users/email', {
+      params: {
+        email: this.refs.username.value
+      }
+    }).then((response) => {
+      console.log(response.data)
+      if(response.data=="success"){
+        this.setState({
+          require:true
+        })
+      }
+     
+    }).catch(function (error) {
+      console.log(error)
+    })
+    console.log(this.refs.email,this.refs.username.value)
+  }
   login(){
-      console.log(666)
-    React.axios.post('http://localhost:3001/users/login', {
-        params: {
-          username: this.refs.username.value,
-          password: this.refs.password.value
-        }
-      }).then((response) => {
-        console.log(response)
-        // this.setState({
-        //   song:this.state.song.concat(response.data.song_list)
-        // })
-      }).catch(function (error) {
-        console.log(error)
-      })
+      
+      if(this.state.require==true){
+        console.log(666)
+        React.axios.post('http://localhost:3001/users/login', {
+          params: {
+            email: this.refs.username.value,
+            code:this.refs.email.value,
+            password: this.refs.password.value
+          }
+        }).then((response) => {
+          console.log(response)
+          // this.setState({
+          //   song:this.state.song.concat(response.data.song_list)
+          // })
+        }).catch(function (error) {
+          console.log(error)
+        })
+      }
+   
     console.log(this.refs.username.value)
     console.log(this.refs.password.value)
   }
   componentDidMount(){
-    // this.login()
+    // this.email()
   }
 
   render () {
@@ -52,11 +75,11 @@ class Login extends Component {
             </div>
              <div className="form_item grid" style={{position:"relative"}}>
                 <label htmlFor="" className="col-0" style={{width:"9rem",fontSize:"1.6rem"}}>邮箱验证码</label>
-                <input className="col-1" type="tel" placeholder="请输入验证码" id="input_code" style={{width:"11rem",fontSize:"1.6rem"}}/>
-                <a ass="col-0" href="javascript:;" className="btn" style={{
+                <input className="col-1" type="tel" ref="email" placeholder="请输入验证码" id="input_code" style={{width:"11rem",fontSize:"1.6rem"}}/>
+                <a ass="col-0" href="javascript:;" onClick={this.email.bind(this)} className="btn" style={{
                     backgroundColor:"#Fff",
                     lineHeight:"23px"
-    }} id="get_verify">获取验证码</a>
+                }} id="get_verify">获取验证码</a>
                 <a ass="col-0" href="javascript:;" className="btn disabled" style={{display:"none"}} id="time_left">剩余59秒</a>
             </div>
             <a href="javascript:;" className="buy" onClick={this.login.bind(this)} id="query">确定</a>
