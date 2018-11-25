@@ -15,10 +15,31 @@ import Xbackhome from '../../components/Xdetail/Xbackhome/Xbackhome';
 class Detail extends Component {
   constructor (props) {
     super(props)
+    this.props = props;
+    console.log(props.location.pathname.slice(8))
     this.state = {
-
+        sendArr:""
     }
   }
+  getDetail(){
+    var self = this;
+    React.axios.post('http://localhost:3001/users/detail', {
+        params: {
+          id: this.props.location.pathname.slice(8)
+        }
+      }).then((response) => {
+        console.log(response.data[0])
+        self.setState({
+            sendArr:response.data[0]
+        })
+       console.log(this.state.sendArr)
+      }).catch(function (error) {
+        console.log(error)
+      })
+    }
+    componentDidMount(){
+        this.getDetail()
+    }
   render () {
     return (
         <div id="app" className="detail"  style={{height:"100px"}}>
@@ -27,7 +48,7 @@ class Detail extends Component {
                     <div className="detail-box">
                         <XheaderBar status="detail"/>
                         <Xfixeddwrap />
-                        <Xresponsibility />
+                        <Xresponsibility arr={this.state.sendArr}/>
                         <Xintroduce />
                         <Xcomment />
                         <Xsettlement />

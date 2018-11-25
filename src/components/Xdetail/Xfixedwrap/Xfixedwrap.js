@@ -27,13 +27,16 @@ class Xfixedwrap extends Component {
         }]
     }
   }
-  componentWDidMount(){
-    window.removeEventHandle('scroll', this.handleScroll.bind(this));	
-        	
-    }
+
     componentWillMount(){
         window.addEventListener('scroll', this.handleScroll.bind(this));
+
     }
+    componentWDidMount(){
+        window.removeEventHandle('scroll', this.handleScroll.bind(this));	
+    
+                
+        }
     // removeEventHandle(box,'mouseover',clickhandle,false); 
     handleScroll(){
         if(window.scrollY>=120){

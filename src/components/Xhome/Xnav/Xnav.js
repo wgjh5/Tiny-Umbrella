@@ -15,6 +15,7 @@ class Xnav extends Component {
         isActive:this.props.tab,
         n:0,
         c:0,
+        recommend:[],
         dingwei:false,
         nav:[{
             title:"成人",
@@ -44,17 +45,18 @@ class Xnav extends Component {
   }
   slide(){
         var mySwiper = new sss('.ss',{
-    slidesPerView : 1000,
-    spaceBetween : "1",
-    // spaceBetween : '50%'
-    })
-}
+        slidesPerView : 1000,
+        spaceBetween : "1",
+        // spaceBetween : '50%'
+        })
+    }
 toggleChildren(index){
     this.setState({
         c:index
     })
     store.emit("toggleChildren",index);
 }
+
 // dingwei(){
 //     console.log(window.scrollY)
 //    if(window.scrollY>172){
@@ -78,6 +80,8 @@ toggleChildren(index){
 // }
 componentDidMount(){
     this.slide()
+    // this.props.isActive(this.props.tab)
+    // this.props.isActive(this.props.tab)
     // window.addEventListener("scroll",this.dingwei.bind(this))
 }
   
@@ -159,21 +163,57 @@ export default connect((state)=>{
 } , (dispatch) => {
     return {
         isActive(index){
-            console.log(this.props)
-            this.setState({
+             this.setState({
                 isActive:index
             })
-            dispatch({
-                type:"isActive",
-                index: index,
-                isShow:true
-              })
+            
+            console.log(this.props)
+            // React.axios.get('http://localhost:3001/users/home').then((response) => {
+            //     console.log(response.data)
+            //     let children = response.data.slice(7,12)
+            //     let adult = response.data.slice(12)
+            //     let parents = response.data.slice(0,6)
+            //     let family = response.data.slice(0,6)
+            //     let travel = response.data.slice(7,12)
+            //     dispatch({
+            //         type:"isActive",
+            //         children:children,
+            //         adult:adult,
+            //         parents:parents,
+            //         family:family,
+            //         travel:travel
+
+            //       })
+            //     // this.props.transData.bind(this);
+
+            // }).catch(function (error) {
+            //     console.log(error)
+            // })
+           
               dispatch({
                 type:"sendStatus",
                 statushome:"home"
               })
+            //   dispatch({
+            //     type:"transData",
+                
+            //   })
    
         },
+        // getData(){
+        //     console.log(77777)
+        //     React.axios.get('http://localhost:3001/users/home').then((response) => {
+        //        console.log(Response.data)
+        //         dispatch({
+        //             type:"isActive",
+        //             recommend:response.data
+        //           })
+        //         // this.props.transData.bind(this);
+        
+        //     }).catch(function (error) {
+        //         console.log(error)
+        //     })
+        // },
         toggleNav(index,e){
             this.setState({
                 n:index
@@ -184,13 +224,9 @@ export default connect((state)=>{
                 isContent:true
               })
               // 发送数据
-            //   console.log(e)
             store.emit("show",index);
         }
-        
-        
-              // 发送数据
-            //   console.log(e)
+           
             
     }
 })(Xnav);

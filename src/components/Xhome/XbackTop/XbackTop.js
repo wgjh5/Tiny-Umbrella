@@ -12,7 +12,7 @@ class XbackTop extends Component {
     }
   }
   componentWillMount(){
-    // this.back();
+    this.back.bind(this)
     window.addEventListener("scroll",this.back.bind(this))
   }
   back(){
@@ -23,6 +23,7 @@ class XbackTop extends Component {
       // console.log(totop)
       // 1.监听滚动事件:当滚动条滚动的距离大于1000,让totop出现
       window.onscroll = function(){
+        console.log(66)
           if(window.scrollY >100){
         
               totop.style.display = "block";
@@ -59,7 +60,7 @@ class XbackTop extends Component {
         </div>
         {/* ======backTop===== */}
         {/* style={{display:(this.state.backT==true)? "block": "none"}} */}
-        <div className="scrollTop iphonex_margin" onClick={this.backTop} style={{display:"none"}}></div>
+        <div className="scrollTop iphonex_margin" onClick={this.backTop} style={{display:"block"}}></div>
       </div>
     )
   }

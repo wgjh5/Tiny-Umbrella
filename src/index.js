@@ -84,14 +84,33 @@ const store = createStore(function (state = {
       var  {navs}  = state
       // 遍历navs仓库，找到你要的东西
       for(var i=0;i<navs.length;i++){
-        navs[i].isShow=false
-        navs[action.index].isShow =action.isShow
+        
+        navs[1].children=action.children
+        navs[2].adult=action.adult
+        navs[3].parents=action.parents
+        navs[4].family=action.family
+        navs[5].travel=action.travel
+        console.log(navs[1].children)
       }
         return {
             ...state,
             navs
         }
         break;
+        // case 'getData':
+        // // 把仓库赋值给navs
+        // let {navs}  = state
+        // // 遍历navs仓库，找到你要的东西
+        // for(var i=0;i<navs.length;i++){
+          
+        //   navs[0].recommend=action.recommend
+        //   console.log(navs[0].recommend)
+        // }
+        //   return {
+        //       ...state,
+        //       navs
+        //   }
+        //   break;
         case 'toggleNav':
         // 把仓库赋值给navs
         var  {content}  = state
@@ -113,6 +132,20 @@ const store = createStore(function (state = {
                 statushome:action.statushome
             }
             break;
+            // case 'transData':
+            //     // 把仓库赋值给navs
+            // let  {navs}  = state
+            // console.log(333333)
+            // // 遍历navs仓库，找到你要的东西
+            // for(var i=0;i<navs.navs.length;i++){
+            //   console.log(navs[0].recommend)
+            //   navs[0].recommend = action.recommend
+            //   // navs[0].isShow =action.isShow
+            // }
+            // return {
+            //     ...state,
+            //     navs
+            // }
     default:
       return state
   }

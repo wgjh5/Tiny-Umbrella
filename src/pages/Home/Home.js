@@ -3,6 +3,7 @@ import './Home.scss'
 // import '../../assets/base.css'
 import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import { connect } from 'react-redux';
+import { hashHistory } from 'react-router'
 // 引入组件
 
 // import Xfooter from '../../components/Xfooter/Xfooter'
@@ -28,8 +29,8 @@ class Home extends Component {
     super(props)
     this.state = {
         togolleClass:0,
-        status:"home",
-        homeArr:[]
+        status:"home"
+
     }
 
     // 根据路径给togoleclass赋值
@@ -62,16 +63,20 @@ class Home extends Component {
     var self = this;
     React.axios.get('http://localhost:3001/users/home').then((response) => {
       console.log(response.data)
-     self.setState({
+      // let data = JSON.stringify(response.data)
+     this.setState({
       homeArr:response.data
      })
-    
+     this.props.transData.bind(this);
+
     }).catch(function (error) {
       console.log(error)
     })
   }
+
   componentDidMount(){
-    this.requestData();
+    
+
     
   }
   render () {
@@ -84,7 +89,7 @@ class Home extends Component {
         <Xnav tab={this.state.togolleClass}/>
         <div className="section" id="list_section">
         <div className='section_item' id='article_0'>
-          <Route path='/home/:homeArr' component={Xrecommend} />
+          <Route path="/home/Xrecommend"  component={Xrecommend} />
           <Route path="/home/Xchildren"  component={Xchildren} />
           <Route path="/home/Xadult" component={Xadult} />
           <Route path="/home/Xparents" component={Xparents} />
@@ -109,6 +114,6 @@ export default connect((state)=>{
   return state
 },(dispatch)=>{
     return {
-        
+      
     }
 })(Home)

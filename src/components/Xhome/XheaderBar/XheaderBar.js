@@ -11,7 +11,6 @@ class XheaderBar extends Component {
   constructor (props) {
     super(props)
     this.props = props;
-    console.log(this.props.status)
     this.state = {
         name:"",
         m:props.status
@@ -19,12 +18,12 @@ class XheaderBar extends Component {
   
   }
   getName(){
-    // console.log(cookie.getCookie("name"))
+ 
     if(cookie.getCookie("name") != undefined){
         let a = cookie.getCookie("name").slice(0,2);
         let b = cookie.getCookie("name").slice(6);
         let c = a+"****"+b
-        console.log(c)
+
 
         this.setState({
             name:c,
@@ -35,7 +34,7 @@ class XheaderBar extends Component {
     }
   }
   toggleheader(){
-      console.log(666)
+
     // store.on("toggleheader","mined")
     // store.on("toggleheader",(data)=>{
     //     console.log(data);
@@ -43,7 +42,7 @@ class XheaderBar extends Component {
     //         m:data
     //     })
     // })
-    console.log(this.state.m)
+
     
     
    

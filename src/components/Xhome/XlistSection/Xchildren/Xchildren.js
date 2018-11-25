@@ -5,65 +5,79 @@ import {Link } from 'react-router-dom'
 import { connect } from 'react-redux';
 import store from '../../../../libs/store'
 
+
 // 引入组件
 
 
 class Xchildren extends Component {
   constructor (props) {
-      console.log(props)
     super(props)
     this.props=props;
     this.state = {
         children:0,
         home:"",
-        homeshow:false
+        homeshow:false,
+        data:[]
     }
+
   }
-//   hanshu(){
-//       this.setState({
-//         home:this.props.statushome,
-//         homeshow:true
-//       })
-//   }
+  getSomes(){
+      console.log(889989)
+    React.axios.get('http://localhost:3001/users/home').then((response) => {
+        console.log(response.data)
+        let recommend = response.data.slice(7,12)
+        console.log(recommend)
+       this.setState({
+           data:recommend
+       })
+       console.log(this.state.data)
+    }).catch(function (error) {
+        console.log(error)
+    })
+}
+
   render () {
     return (
         <div>
             {(()=>{
                 if(this.props.statushome=="home"){
-                    return (
-                        <Link to={"/Detail"} className="article row" >
-                        <div className="section_img">
-                            <img src="https://sslstatic.xiaoyusan.com/h5/img/m_index/article/h5item_1539328597.jpg" data-original="https://sslstatic.xiaoyusan.com/h5/img/m_index/article/h5item_1539328597.jpg"
-                                alt="" className="article_img lazy" style={{display: "inline"}} />
-                            <img src="//sslstatic.xiaoyusan.com/h5/img/m_index_v2/article_static3.png" alt="" className="article_static2" style={{width:"28%"}}/>
-                            
-                        </div>
-                        <div className="col">
-                            <div className="article_tit clearfix">擎天柱定期寿险2号</div>
-                            <div className="article_txt">
-                                <div className="or icon icon2_6">
-                                    可附加投/被保人豁免（独家）
-                                    <br/>
+                    return this.state.data.map((item,index)=>{
+                        return (
+                            <Link to={"/Detail"} key={index} className="article row" >
+                            <div className="section_img">
+                                <img src={item.imgurl} data-original="https://sslstatic.xiaoyusan.com/h5/img/m_index/article/h5item_1539328597.jpg"
+                                    alt="" className="article_img lazy" style={{display: "inline"}} />
+                                <img src="//sslstatic.xiaoyusan.com/h5/img/m_index_v2/article_static3.png" alt="" className="article_static2" style={{width:"28%"}}/>
+                                
+                            </div>
+                            <div className="col">
+                                <div className="article_tit clearfix">{item.title}</div>
+                                <div className="article_txt" style={{display:"block"}}>
+                                    <div className="or icon icon2_6">
+                                    {item.describeone}
+                                        <br/>
+                                    </div>
+                                    <div className="or icon icon2_6">
+                                    {item.describetow}
+                                        <br/>
+                                    </div>
+                                    <div className="jingjing row">
+                                    </div>
                                 </div>
-                                <div className="or icon icon2_6">
-                                    保障身故和全残，智能定价更便宜
-                                    <br/>
-                                </div>
-                                <div className="jingjing row">
+                                <div className="article_ft row">
+                                    <div className="article_price col">
+                                        <b>{item.price}</b>元起
+                                        <span className="article_estimate">{item.evaluate}条评价</span>
+                                    </div>
+                                    <div>
+                                        <span className="article_btn">立即投保</span>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="article_ft row">
-                                <div className="article_price col">
-                                    <b>37</b>元起
-                                    <span className="article_estimate">162条评价</span>
-                                </div>
-                                <div>
-                                    <span className="article_btn">立即投保</span>
-                                </div>
-                            </div>
-                        </div>
-                    </Link>
-                    )
+                        </Link>
+                        )
+                   })
+                
                 }else if(this.props.status=="children"){
   
                         if(this.state.children==0){
@@ -715,6 +729,7 @@ class Xchildren extends Component {
     // if(this.props.statushome=="home"){
     //     this.hanshu()
     // }
+    this.getSomes();
     store.on("toggleChildren",(data)=>{
         console.log(data);
         this.setState({
