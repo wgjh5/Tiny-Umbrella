@@ -12,7 +12,7 @@ class XbackTop extends Component {
     }
   }
   componentWillMount(){
-    this.back.bind(this)
+    // this.back.bind(this)
     window.addEventListener("scroll",this.back.bind(this))
   }
   back(){

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Home.scss'
+// import { Spin } from 'antd';
 // import '../../assets/base.css'
 import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import { connect } from 'react-redux';
@@ -29,7 +30,8 @@ class Home extends Component {
     super(props)
     this.state = {
         togolleClass:0,
-        status:"home"
+        status:"home",
+        showloading:false
 
     }
 
@@ -82,7 +84,7 @@ class Home extends Component {
   render () {
     return (
       <div className="home">
-        
+        {/* <Spin spinning={false}/> */}
         <XheaderBar status={this.state.status}/>
         <XswiperContainer />
         <Xpblink />

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 // import './index.css'
 import './assets/base.scss'
 import './assets/body.scss'
-
+import './assets/antd-mobile.css'
 // 路由引入
 import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 
@@ -11,11 +11,17 @@ import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 import axios from 'axios'
 
 
+
 // import App from './App'
 
 // redux引入
 import { Provider, connect } from 'react-redux'
 import { createStore } from 'redux'
+// import globalCode from '../constants/globalCode'; 
+import { Toast } from 'antd-mobile';
+import {createHashHistory} from 'history';
+// import commonInfo from '../common/CommonInfo';
+
 
 // 父组件
 import Home from './pages/Home/Home'
@@ -28,7 +34,7 @@ import Detail from './pages/Detail/Detail'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
 import ChildrensInsurance from './pages/ChildrensInsurance/ChildrensInsurance'
-
+import CarOrder from './pages/CarOrder/CarOrder'
 // ==============
 import * as serviceWorker from './serviceWorker'
 React.axios = axios
@@ -150,23 +156,31 @@ const store = createStore(function (state = {
       return state
   }
 })
-// class HelloMessage extends React.Component {
-// constructor (props) {
-//   console.log(props)
-//   super(props)
-// }
-// }
+
+axios.interceptors.request.use((config) => {
+  Toast.loading('', 3,true);
+	return config;
+}, (err) => {
+	return Promise.reject(err)
+
+})
+
+axios.interceptors.response.use((response) => {
+	Toast.hide(); //关闭loading
+	return response;
+}, (err) => {
+	return Promise.reject(err);
+
+})
 
 
-// import { createStore } from 'redux';
-// const store = createStore(reducer);
-
-// store.subscribe(listener);
 ReactDOM.render(
   <Provider store={store}>
     <Router>
       <div className='container iphonex_padding'>
+      
         <Switch>
+        
         {/* console.log(this.props) */}
           <Route path='/home/' component={Home} />
           <Route path="/BestChoice/"  component={BestChoice} />
@@ -176,6 +190,7 @@ ReactDOM.render(
           <Route path="/ChildrensInsurance" component={ChildrensInsurance} />
           <Route path="/Login" component={Login} />
           <Route path="/Register" component={Register} />
+          <Route path="/CarOrder" component={CarOrder} />
           <Redirect from='/' exact to='/home/Xrecommend' />
         </Switch>
         
