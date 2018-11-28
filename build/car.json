@@ -1,0 +1,32 @@
+{
+    "data": [
+        {
+            "_id": "5bfa6a5edbddaa67bc9cef62",
+            "name": "854453495@qq.com",
+            "imgurl": "https://sslstatic.xiaoyusan.com/h5/img/m_index/article/h5item_1513663517.jpg",
+            "price": "100",
+            "describetow": " 0免赔，报销社保范围费用和自费药"
+        },
+        {
+            "_id": "5bfa6a5edbddaa67bc9cef60",
+            "name": "854453495@qq.com",
+            "imgurl": "https://sslstatic.xiaoyusan.com/h5/img/m_index/article/h5item_1541753560.jpg",
+            "price": "146",
+            "describetow": "60岁也可投保，续保最高至80岁"
+        },
+        {
+            "_id": "5bfa6a5edbddaa67bc9cef69",
+            "name": "854453495@qq.com",
+            "imgurl": "https://sslstatic.xiaoyusan.com/h5/img/m_index/article/h5item_1542967389.png",
+            "price": "259",
+            "describetow": "多次赔不分组更划算"
+        },
+        {
+            "_id": "5bfe667fae714863301d770d",
+            "name": "1058350816@qq.com",
+            "imgurl": "https://sslstatic.xiaoyusan.com/h5/img/m_index/article/h5item_1541753560.jpg",
+            "price": "146",
+            "describetow": "60岁也可投保，续保最高至80岁"
+        }
+    ]
+}
