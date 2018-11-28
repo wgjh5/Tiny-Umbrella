@@ -39,7 +39,7 @@ componentDidMount(){
         {(()=>{
             return this.state.data.map((item,index)=>{
                 return (
-                    <Link to={"/Detail"} key={index} className="article row" >
+                    <Link to={`/Detail/${item._id}`} key={index} className="article row" >
                     <div className="section_img">
                         <img src={item.imgurl} data-original="https://sslstatic.xiaoyusan.com/h5/img/m_index/article/h5item_1539328597.jpg"
                             alt="" className="article_img lazy" style={{display: "inline"}} />

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './Xorder.scss'
-
+import { withRouter   } from 'react-router-dom'
 class Xorder extends Component {
   constructor (props) {
     super(props)
@@ -9,6 +9,9 @@ class Xorder extends Component {
 
     }
   }
+  goCar(){
+    this.props.history.push('/carOrder')
+  }
   render () {
    return( 
        <div>
@@ -16,10 +19,10 @@ class Xorder extends Component {
         {/* <!-- <h2 className="box_tit">保险服务</h2> --> */}
         <ul className="lists">
             <li className="lists_li border-1px">
-                <a href="/my/deallist " className="lists_item row middle" data-track="my_deallist" id="myorder">
+                <a onClick={this.goCar.bind(this)}  className="lists_item row middle" data-track="my_deallist" id="myorder">
                     <p className="newicon bg-o5"></p>
                     <div className="lists_box col">
-                        <h3 className="lists_tit ">我的保单</h3>
+                        <h3 className="lists_tit " >我的保单</h3>
                         {/* <!-- <p className="lists_txt">通过被保人身份信息查询保单详情</p> --> */}
                     </div>
                 </a>
@@ -129,4 +132,4 @@ class Xorder extends Component {
   }
 }
 
-export default Xorder
+export default withRouter(Xorder)

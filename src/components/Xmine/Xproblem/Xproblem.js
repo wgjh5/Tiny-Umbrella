@@ -25,7 +25,7 @@ class Xpropblem extends Component {
         <a className="add_lc_pro" href="/question/faq">常见问题 &gt;</a>
         <span className="add_lc_l"></span>
         <a className="add_lc_sol" href="/question/adviceAndComplain">投诉建议 &gt;</a>
-        <Link to={"/home/Xrecommend"} onClick={this.delCookie.bind(this)} style={{color:"#8c7fee",position:"absolute",right:"6%",bottom:"1%",fontWeight:"bold",border:"1px solid #ccc",padding:"5px"}}>退出登录</Link>
+        <Link to={"/home/Xrecommend"} onClick={this.delCookie.bind(this)} style={{color:"#8c7fee",position:"absolute",right:"6%",bottom:"10%",fontWeight:"bold",border:"1px solid #ccc",padding:"5px"}}>退出登录</Link>
     </div>
     )
   }

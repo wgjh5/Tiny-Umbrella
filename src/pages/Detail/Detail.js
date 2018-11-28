@@ -52,7 +52,7 @@ class Detail extends Component {
                         <Xintroduce />
                         <Xcomment />
                         <Xsettlement />
-                        <Xdetailfooter />
+                        <Xdetailfooter arr={this.state.sendArr}/>
                     </div>
                 </div>
                 <Xbackhome />

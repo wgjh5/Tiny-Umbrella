@@ -8,7 +8,8 @@ class Login extends Component {
   constructor (props) {
     super(props)
     this.state = {
-        require:false
+        require:false,
+        showTime:59
     }
   }
   email(){
@@ -22,6 +23,24 @@ class Login extends Component {
         this.setState({
           require:true
         })
+        console.log(this.refs.aa)
+        this.refs.aa.style.display = "none"
+        this.refs.bb.style.display = "block"
+        let timer = setInterval(()=>{
+          this.setState({
+            showTime:--this.state.showTime
+          })
+          if(this.state.showTime<="0"){
+            clearInterval(timer)
+            this.setState({
+              showTime:59
+            })
+            this.refs.bb.style.display = "none"
+            this.refs.aa.style.display = "block"
+          }
+        },1000)
+        console.log(this.state.showTime)
+      
       }
      
     }).catch(function (error) {
@@ -76,11 +95,11 @@ class Login extends Component {
              <div className="form_item grid" style={{position:"relative"}}>
                 <label htmlFor="" className="col-0" style={{width:"9rem",fontSize:"1.6rem"}}>邮箱验证码</label>
                 <input className="col-1" type="tel" ref="email" placeholder="请输入验证码" id="input_code" style={{width:"11rem",fontSize:"1.6rem"}}/>
-                <a ass="col-0" href="javascript:;" onClick={this.email.bind(this)} className="btn" style={{
+                <a ass="col-0" href="javascript:;" onClick={this.email.bind(this)} ref="aa" className="btn" style={{
                     backgroundColor:"#Fff",
                     lineHeight:"23px"
                 }} id="get_verify">获取验证码</a>
-                <a ass="col-0" href="javascript:;" className="btn disabled" style={{display:"none"}} id="time_left">剩余59秒</a>
+                <a ass="col-0" href="javascript:;" className="btn disabled" style={{display:"none",lineHeight: "2rem"}} ref="bb" id="time_left">剩余{this.state.showTime}秒</a>
             </div>
             <a href="javascript:;" className="buy" onClick={this.login.bind(this)} id="query">确定</a>
         </form>

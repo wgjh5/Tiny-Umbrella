@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './Register.scss'
 // 引入组件
-// import cookie from 'react-cookies'
-import cookie from '../../libs/cookie.js'
+import cookie from 'react-cookies'
+// import cookie from '../../libs/cookie.js'
 // import store from '../../libs/store.js'
 import { Link , withRouter  } from 'react-router-dom'
 class Login extends Component {
@@ -27,10 +27,9 @@ class Login extends Component {
           this.setState({
             statusDl:true
           })
-          // this.setState({ aaa:self.refs.username.value })
-          // cookie.save('username', this.state.aaa, { path: '/' })
-          // cookie.save("username",self.refs.username.value)
-          cookie.setCookie("name",self.refs.username.value)
+        
+          // cookie.setCookie("name",self.refs.username.value)
+          cookie.save('name', self.refs.username.value)
           // store.emit("toggleheader","mined")
           this.props.history.push('/home/Xrecommend')
         }
